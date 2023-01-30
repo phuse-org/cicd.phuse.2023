@@ -1,0 +1,696 @@
+---
+title: "CI/CD in the {pharmaverse}"
+subtitle: |
+  R/Pharma
+
+  November 10th, 2022
+
+  Ben Straub (GSK) & Craig Gower-Page (Roche)
+execute:
+  echo: false
+  warning: false
+  error: false
+  eval: true
+  output: asis
+  comment: ''
+format:
+  revealjs:
+    slide-number: true
+    chalkboard:
+      buttons: false
+    preview-links: auto
+    logo: https://avatars.githubusercontent.com/u/84541169
+    footer: <[CI-CD GitHub](https://github.com/pharmaverse/cicdworkshop.rinpharma2022)>
+    theme: [simple, custom.scss]
+    from: markdown+emoji
+    link-external-icon: true
+    link-external-newwindow: true
+---
+
+```{r}
+render_file <- function(filepath, language = "yaml") {
+  cat(paste0("```", language, "\n"))
+  cat(readLines(filepath), sep = "\n")
+  cat("```\n")
+}
+```
+
+
+## What is CI/CD? 
+
+
+::: {.fragment}
+* Continuous Integration (CI): Frequent merging of several small changes into a main branch
+:::
+
+::: {.fragment}
+* Continuous Delivery (CD): Repeatable deployment process when deciding to deploy
+:::
+
+::: {.fragment}
+CI/CD bridges the gaps between development and operation activities and teams by **enforcing automation** in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables
+:::
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.centre}
+::: {.fragment}
+![](images/cicd.jpg)
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: {.centre}
+::: {.fragment}
+![](images/pharmaverse.png)
+:::
+:::
+:::
+:::
+
+
+::: footer
+[Wikipedia: CI/CD](https://en.wikipedia.org/wiki/CI/CD#cite_note-2) [{pharmaverse}](https://github.com/pharmaverse)
+:::
+
+## Does it help?
+
+<div class="centre">
+![](images/automation.png)
+</div>
+
+
+::: {.fragment}
+...Yes!  Yes, it does!!
+:::
+
+::: footer
+[XKCD](https://xkcd.com/1319/)
+:::
+
+## How does CI/CD help R packages?
+
+::: {.incremental}
+- Catch issues (bugs) early on 
+- User base on multiple OSes and multiple R versions
+- Faster turnaround on Code Review
+- Multiple Contributors on your R Package
+- Enforce style conventions and preferences 
+- Measure test coverage for new code 
+- Keep docs up-to-date
+- And we can just keep going!
+:::
+
+<!-- TODO add standard package logo or something -->
+
+::: {.column width="100%" .fragment}
+We just did all these in the R/Pharma Workshop: [Intro to CI/CD for R Packages](https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/index.html#/title-slide)
+:::
+
+# Case Study - admiral
+
+## About admiral
+<br/>
+
+:::: {.columns}
+
+::: {.column width="75%"}
+- Provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.<br/>
+- ADaM is one of the required standards for data submission to FDA (U.S.) and PMDA (Japan) for clinical trials
+- Links
+  - [CDISC](https://www.cdisc.org/)
+  - [https://github.com/pharmaverse/admiral](https://github.com/pharmaverse/admiral)
+- **Issue 1:**  Checking ADaM Template code
+- **Issue 2:**  Common CI/CD workflows for the `admiral` family of packages
+:::
+
+::: {.column width="25%"}
+![](images/hex-admiral.png)
+:::
+::::
+
+
+## Issue 1 - How to Check our Template Code
+
+:::: {.columns}
+
+::: {.column width="40%" .incremental}
+- Create a reference files to build common ADaM datasets that shows users how to implement our functions
+- Way less text than a Vignette - Code is ready to go and build a dataset
+- Where we store this code is not checked by R-CMD
+- How to ensure code stays up to date with deprecated functions or unforeseen bugs get in from functions working together?
+- CI/CD for the win!
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="50%"}
+![](images/templates.png)
+:::
+::::
+
+## Solution 1 - CI/CD for Templates
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
+- Dedicated CI/CD workflow that executes the Template code
+- Once a Code Review is completed the `Check Template` Workflow is executed
+- If any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.
+:::
+
+::: {.column width="50%"}
+
+::: {.file-name}
+.github/workflows/check-templates.yml
+:::
+
+![](images/check_templates.png)
+:::
+::::
+
+## Issue 2 - admiral upstream and downstream dependencies
+
+:::: {.columns}
+
+::: {.column width="40%" .incremental}
+- As you can imagine there can be a lot of different types of ADaMs!
+- Extension packages focus on specific disease areas like oncology
+- The `admiral` family has a package for developers, template R package repo and dummy data
+- Eek!!  How to keep this all in line!
+:::
+
+
+
+::: {.column width="60%"}
+![](images/admiralext.png)
+:::
+:::
+
+## Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Using `admiralci`, we have a common set of CI/CD workflows
+- Developers moving between packages are familiar with these workflows
+- Common documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="50%"}
+![](images/admiralci.png)
+:::
+:::
+
+
+
+# Case Study - NEST
+
+## About NEST
+<br/>
+
+:::: {.columns}
+
+::: {.column width="75%"}
+- A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br/>
+- `tern` for creating TLGs<br/>
+- `teal` for creating exploratory web applications for analyzing clinical trial data<br/>
+- Links
+  - [rtables](https://github.com/Roche/rtables)
+  - [NEST GitHub Organization](https://github.com/insightsengineering/)
+:::
+
+::: {.column width="25%"}
+![](https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/nest.png)
+:::
+::::
+
+
+<!-- ## Package Development Problems
+<br/>
+- Lots of co-dependent packages that need to be tested as a cohort
+- Testing Shiny web applications based on the `teal` framework
+- Deploying Shiny web applications built with `teal`
+- Validation of all packages to
+  - adhere to regulatory standards
+  - so they can be deployed on regulatory compute environments
+::: {.centre}
+![](images/sad-emoji.png)
+::: -->
+
+
+
+
+## Use Case 1 - Testing Packages as a Cohort
+
+<br/>
+
+
+- An in-development package must be tested against the latest versions of upstream dependencies
+- Monorepo emulation via a git branch naming strategy is achieved by using
+  - the [staged.dependencies R package](https://github.com/openpharma/staged.dependencies)
+  - and the [staged.dependencies GitHub Action](https://github.com/insightsengineering/staged-dependencies-action)
+- Testing as a cohort can be done at any stage (eg. development, pre-release, release)
+
+
+
+::: {.centre}
+<img
+  src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/staged.dependencies.png" 
+  width="175" 
+  height="175"
+/>
+:::
+
+
+## Use Case 2 - Shiny App Testing & Deployment
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+- Analysts create Shiny web apps via the `teal` framework for analyzing data
+- Apps are tested via a CI pipeline that uses the [`shinytest2`](https://cran.r-project.org/web/packages/shinytest2/index.html) R package
+- Apps deployed to an RSConnect Server instance via a CD pipeline
+  - With the help of the [`rsconnect`](https://cran.r-project.org/web/packages/rsconnect/index.html) and [`connectapi`](https://cran.r-project.org/web/packages/connectapi/index.html) R packages
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+
+![](images/shinytest2.png)
+
+:::
+
+::::
+
+## Use Case 3 - Validating R Packages
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+- R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
+  - accept new package submissions via a form
+  - running tests against the new package to ensure package integrity
+  - enforcing criteria to ensure that the package meets regulatory requirements
+- Also validated externally via an open source project called [thevalidatoR](https://github.com/insightsengineering/thevalidatoR)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/validation-report.png)
+
+:::
+
+::::
+
+# Case Study - rbmi
+
+## About rbmi
+<br/>
+
+:::: {.columns}
+
+::: {.column width="75%"}
+- Reference Based Multiple Imputation<br/>
+- Implements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands<br/>
+- Acknowledgements to Alessandro Noci, Marcel Wolbers & Daniel Sabanes Bove<br/>
+- Links
+  - [https://arxiv.org/abs/2109.11162](https://arxiv.org/abs/2109.11162)
+  - [https://github.com/insightsengineering/rbmi](https://github.com/insightsengineering/rbmi)
+:::
+
+::: {.column width="25%"}
+![](images/rbmi.png)
+:::
+::::
+
+::: {.notes}
+Key component of the package is that many of the methods rely on resampling techniques to 
+generate confidence intervals. This requires fitting potentially 1000's of MMRM models which
+means run times tend to be in the order of minutes to hours for a full run of the package
+depending on the size of the data
+:::
+
+
+
+
+
+
+## Package Development Problems
+<br/>
+
+- Installation takes >3 minutes to compile STAN code
+- Full test suite takes >50 minutes to run
+- Vignettes took >5 minutes to run
+- Need to release on in-house servers running legacy versions of R
+- Many PR's forgot to run `devtools::document()`
+- Many PR's forgot to rebuild pkgdown site
+
+<div class="centre">
+![](images/sad-emoji.png)
+</div>
+
+::: {.notes}
+2 key issues that we are about to cover:
+- Need to get run times down to <10 minutes
+- Need to ensure package works both on internal server and CRAN
+:::
+
+
+
+
+
+
+## Solution 1 - Reducing the Test Suite Runtime
+<br/>
+
+::: {.file-name}
+`tests/testthat/test-bigtest.R`
+:::
+```{r}
+#| eval: false
+#| echo: true
+test_that("Some long running section", {
+  skip_if_not(Sys.getenv("R_TEST_FULL") == "TRUE")
+
+  # <rest of the test code>
+})
+```
+
+<br/>
+
+::: {.fragment}
+::: {.file-name}
+`.github/workflows/on_biweekly.yaml`
+:::
+```yaml
+on:
+  schedule:
+    - cron: '0 4 1,15 * *'
+
+jobs:
+  rcmdcheck-main:
+    env:
+      R_TEST_FULL: 'TRUE' 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check
+        uses: ./.github/actions/rcmdcheck
+```
+:::
+
+::: {.notes}
+- Use of skip-if-not + environment variable to conditionally control which tests get executed
+- Use of CICD to ensure that the skipped tests do still get run on a period basis
+:::
+
+
+
+
+## Solution 2 - Reducing the Vignette Runtime
+
+<br/>
+
+
+
+```text
+.
+├── DESCRIPTION
+├── R/
+├── tests/
+└── vignettes/
+    ├── quickstart.Rmd
+    ├── quickstart.html
+    └── quickstart.html.asis
+```
+<br/>
+
+::: {.file-name}
+`DESCRIPTION`
+:::
+```{bash}
+#| eval: FALSE
+#| echo: TRUE 
+Suggests: R.rsp
+VignetteBuilder: R.rsp
+```
+
+<br/>
+
+
+::: {.file-name}
+`vignettes/quickstart.html.asis`
+:::
+```{bash}
+#| eval: FALSE
+#| echo: TRUE 
+%\VignetteIndexEntry{rbmi: Quickstart}
+%\VignetteEngine{R.rsp::asis}
+```
+
+::: {.notes}
+- Use of R.rsp package  to use "asis" vignette builder
+- This is where we make the vignettes locally in advance and directly add them to the repo
+- When R "builds" the vignette it simply just uses the pre-built file asis without re-running it
+- This opens up a problem though of how do we know if the vignette is up-to-date or even runs properly
+anymore?
+:::
+
+
+## Solution 2 - Reducing the Vignette Runtime {visibility="uncounted"}
+
+<br/>
+
+
+::: {.file-name}
+`.github/workflow/on_pr.yaml`
+:::
+```yaml
+  vignettes:
+    runs-on: ubuntu-latest
+    container:
+      image: "ghcr.io/insightsengineering/rbmi:latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build Vignettes
+        run: |
+          Rscript ./vignettes/build.R
+```
+
+
+::: {.centre}
+![](images/github-vignette-ticks.png)
+:::
+
+::: {.notes}
+- We thus have a dedicated CICD job specifically to re-build the vignette. 
+- This way Vignette execution is doing in parallel to the running of the test suite
+- Trade off here though is that it means our vignettes are never executed on CRANs servers
+- This trade-off can be partially mitigated by setting up our own CICD process to use a variety of
+different OS's / machine builds
+:::
+
+
+
+
+<!-- ## Solution 3 - Reducing code Compilation Time
+<br/>
+
+::: {.file-name}
+`.github/actions/build-src/action.yml`
+:::
+```yaml
+    - name: Cache Compiled Stan Code
+      id: cache-pkgs
+      uses: actions/cache@v3
+      with:
+        path: src/*
+```
+
+::: {.centre}
+![](images/github-cache-build.png){style="height:350px"}
+:::
+
+::: {.notes}
+- Main point is compiling code (in our case stan code) can take a ton of time
+- We use githubs cache feature to restore the compiled code from previous builds to save that time
+- Con is that care with the configuration is required to ensure you aren't loading say MAC binaries
+on a windows image
+- Screenshot just shows the run time of the compile code "build src" is very low compared to the 
+usual 2-5 minutes
+::: -->
+
+
+
+## Solution 3 - Testing Against In-House Servers
+<br/>
+
+::: {.centre}
+![](images/rbmi-docker-image.png){style="height:600px"}
+:::
+
+::: {.notes}
+- Use of docker files to emulate our in-house servers
+- Had double benefit of drastically reducing package install times on standard push / pr builds
+as all required dependencies are already installed and ready to go
+:::
+
+
+<!-- ## Solution 4 - Testing Against In-House Servers {visibility="uncounted"}
+<br/>
+
+::: {.file-name}
+`.github/workflows/build_docker.yaml`
+:::
+```yaml
+on:
+  push:
+    paths:
+      - 'misc/docker/**'
+
+jobs:
+  build:
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      
+      - name: Build and push image 
+        uses: docker/build-push-action@v2
+```
+::: {.notes}
+- Main point here is the targeted use of "paths" to only rebuild and redeploy our docker images
+when a change has occurred in the docker directory
+- The Job code is pretty redundant here as it misses a load of stuff to ensure if can fit on the 
+screen however hopefully it just gives some flavour of a job to build a docker file
+::: -->
+
+
+
+
+## Solution 3 - Testing Against In-House Servers {visibility="uncounted"}
+<br/>
+
+::: {.file-name}
+`.github/workflows/on_pr_main.yaml`
+:::
+
+```yaml
+jobs:
+  rcmdcheck:
+    strategy:
+      matrix:
+       config:
+        - { image: "ghcr.io/insightsengineering/rbmi:r404"}
+        - { image: "ghcr.io/insightsengineering/rbmi:r410"}
+        - { image: "ghcr.io/insightsengineering/rbmi:latest"}
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.config.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Build src
+        uses: ./.github/actions/build-src
+        
+      - name: Check
+        uses: ./.github/actions/rcmdcheck
+```
+
+::: {.notes}
+- Final bit on this is just to highlight that we can use githubs matrix feature
+to ensure that our job is run against all the different combination of images and r versions
+that we want to ensure we can support
+:::
+
+
+
+
+
+## Additional Materials
+<br/>
+
+- Further Reading
+  - [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+  - [GitLab CI](https://docs.gitlab.com/ee/ci/)
+- Advanced Examples
+  - [r-lib/actions](https://github.com/r-lib/actions)
+  - [`{admiralci}`](https://github.com/pharmaverse/admiralci)
+  - [Docker](https://www.docker.com/)
+- Presentation built with [Quarto](https://quarto.org/)
+
+- [R/Pharma 2022 CI/CD Workshop](https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/)
+- [This Presentation](https://pharmaverse.github.io/cicdworkshop.rinpharma2022/presentation/)
+
+
+<!--    Legacy slides
+
+
+## Need to ensure code works on internal servers
+
+DockerFile that emulates internal servers + cicd job to ensure code works in it
+ 
+
+## CRAN limits runs to 10 minutes
+
+- Extract vignettes to "as-is" instead of being built on the fly
+- CICD test to then re-build vignettes to make sure they don't error  (rather than being done in the CRAN-check)
+- Extraction of long running unit tests into their own "extended" set of tests
+- CRON CICD job that will run the extended unit tests (which last an hour) whilst regular set of unit tests run fine in a couple of minutes
+
+
+## Unit tests take a long while to run due to the need to compile code
+
+Cache the src/ directory so that it is restored on each run (cache done separately per OS / R-version
+
+## Testing
+
+### Unit Tests
+
+1. Unit Tests: 
+2. Test Coverage:
+3. Integration tests:
+
+## Static Code Analysis
+
+1. Linting
+2. Spell Check
+3. Link & URL Checks
+
+## Documentation
+
+1. Man pages
+2. pkgdown site
+
+-->
+
+<!--
+## 
+<div class="section-title">
+Case Study - RBMI
+</div>
+::: {.notes}
+An example of a manually constructed section title but looks like using a single "#" does the
+trick so probs able to just ignore this
+:::
+-->
