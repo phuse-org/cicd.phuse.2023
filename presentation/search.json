@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "index.html#what-is-cicd",
+    "href": "index.html#what-is-cicd",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "What is CI/CD?",
+    "text": "What is CI/CD?\n\n\nContinuous Integration (CI): Frequent merging of several small changes into a main branch\n\n\n\n\nContinuous Delivery (CD): Repeatable deployment process when deciding to deploy\n\n\n\nCI/CD bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWikipedia: CI/CD {pharmaverse}"
+  },
+  {
+    "objectID": "index.html#does-it-help",
+    "href": "index.html#does-it-help",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Does it help?",
+    "text": "Does it help?\n\n\n\n\n…Yes! Yes, it does!!\n\n\nXKCD"
+  },
+  {
+    "objectID": "index.html#how-does-cicd-help-r-packages",
+    "href": "index.html#how-does-cicd-help-r-packages",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "How does CI/CD help R packages?",
+    "text": "How does CI/CD help R packages?\n\n\nCatch issues (bugs) early on\nUser base on multiple OSes and multiple R versions\nFaster turnaround on Code Review\nMultiple Contributors on your R Package\nEnforce style conventions and preferences\nMeasure test coverage for new code\nKeep docs up-to-date\nAnd we can just keep going!\n\n\n\n\nWe just did all these in the R/Pharma Workshop: Intro to CI/CD for R Packages"
+  },
+  {
+    "objectID": "index.html#about-admiral",
+    "href": "index.html#about-admiral",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "About admiral",
+    "text": "About admiral\n\n\n\n\nProvide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.\nADaM is one of the required standards for data submission to FDA (U.S.) and PMDA (Japan) for clinical trials\nLinks\n\nCDISC\nhttps://github.com/pharmaverse/admiral\n\nIssue 1: Checking ADaM Template code\nIssue 2: Common CI/CD workflows for the admiral family of packages"
+  },
+  {
+    "objectID": "index.html#issue-1---how-to-check-our-template-code",
+    "href": "index.html#issue-1---how-to-check-our-template-code",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Issue 1 - How to Check our Template Code",
+    "text": "Issue 1 - How to Check our Template Code\n\n\n\nCreate a reference files to build common ADaM datasets that shows users how to implement our functions\nWay less text than a Vignette - Code is ready to go and build a dataset\nWhere we store this code is not checked by R-CMD\nHow to ensure code stays up to date with deprecated functions or unforeseen bugs get in from functions working together?\nCI/CD for the win!"
+  },
+  {
+    "objectID": "index.html#solution-1---cicd-for-templates",
+    "href": "index.html#solution-1---cicd-for-templates",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 1 - CI/CD for Templates",
+    "text": "Solution 1 - CI/CD for Templates\n\n\n\nDedicated CI/CD workflow that executes the Template code\nOnce a Code Review is completed the Check Template Workflow is executed\nIf any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.\n\n\n\n.github/workflows/check-templates.yml"
+  },
+  {
+    "objectID": "index.html#issue-2---admiral-upstream-and-downstream-dependencies",
+    "href": "index.html#issue-2---admiral-upstream-and-downstream-dependencies",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Issue 2 - admiral upstream and downstream dependencies",
+    "text": "Issue 2 - admiral upstream and downstream dependencies\n\n\n\nAs you can imagine there can be a lot of different types of ADaMs!\nExtension packages focus on specific disease areas like oncology\nThe admiral family has a package for developers, template R package repo and dummy data\nEek!! How to keep this all in line!"
+  },
+  {
+    "objectID": "index.html#solution-2---common-cicd-workflows-for-admiral-upstream-and-downstream-dependencies",
+    "href": "index.html#solution-2---common-cicd-workflows-for-admiral-upstream-and-downstream-dependencies",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies",
+    "text": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies\n\n\n\nUsing admiralci, we have a common set of CI/CD workflows\nDevelopers moving between packages are familiar with these workflows\nCommon documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors"
+  },
+  {
+    "objectID": "index.html#about-nest",
+    "href": "index.html#about-nest",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "About NEST",
+    "text": "About NEST\n\n\n\n\nA collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization\ntern for creating TLGs\nteal for creating exploratory web applications for analyzing clinical trial data\nLinks\n\nrtables\nNEST GitHub Organization"
+  },
+  {
+    "objectID": "index.html#use-case-1---testing-packages-as-a-cohort",
+    "href": "index.html#use-case-1---testing-packages-as-a-cohort",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 1 - Testing Packages as a Cohort",
+    "text": "Use Case 1 - Testing Packages as a Cohort\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
+  },
+  {
+    "objectID": "index.html#use-case-2---shiny-app-testing-deployment",
+    "href": "index.html#use-case-2---shiny-app-testing-deployment",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 2 - Shiny App Testing & Deployment",
+    "text": "Use Case 2 - Shiny App Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an RSConnect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
+  },
+  {
+    "objectID": "index.html#use-case-3---validating-r-packages",
+    "href": "index.html#use-case-3---validating-r-packages",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 3 - Validating R Packages",
+    "text": "Use Case 3 - Validating R Packages\n\n\n\n\nR packages are validated by an internal validation team that uses CI/CD pipelines to automatically\n\naccept new package submissions via a form\nrunning tests against the new package to ensure package integrity\nenforcing criteria to ensure that the package meets regulatory requirements\n\nAlso validated externally via an open source project called thevalidatoR"
+  },
+  {
+    "objectID": "index.html#about-rbmi",
+    "href": "index.html#about-rbmi",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "About rbmi",
+    "text": "About rbmi\n\n\n\n\nReference Based Multiple Imputation\nImplements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands\nAcknowledgements to Alessandro Noci, Marcel Wolbers & Daniel Sabanes Bove\nLinks\n\nhttps://arxiv.org/abs/2109.11162\nhttps://github.com/insightsengineering/rbmi\n\n\n\n\n\n\n\nKey component of the package is that many of the methods rely on resampling techniques to generate confidence intervals. This requires fitting potentially 1000’s of MMRM models which means run times tend to be in the order of minutes to hours for a full run of the package depending on the size of the data"
+  },
+  {
+    "objectID": "index.html#package-development-problems",
+    "href": "index.html#package-development-problems",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Package Development Problems",
+    "text": "Package Development Problems\n\n\nInstallation takes >3 minutes to compile STAN code\nFull test suite takes >50 minutes to run\nVignettes took >5 minutes to run\nNeed to release on in-house servers running legacy versions of R\nMany PR’s forgot to run devtools::document()\nMany PR’s forgot to rebuild pkgdown site\n\n\n\n\n\n2 key issues that we are about to cover: - Need to get run times down to <10 minutes - Need to ensure package works both on internal server and CRAN"
+  },
+  {
+    "objectID": "index.html#solution-1---reducing-the-test-suite-runtime",
+    "href": "index.html#solution-1---reducing-the-test-suite-runtime",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 1 - Reducing the Test Suite Runtime",
+    "text": "Solution 1 - Reducing the Test Suite Runtime\n\n\ntests/testthat/test-bigtest.R\n\ntest_that(\"Some long running section\", {\n  skip_if_not(Sys.getenv(\"R_TEST_FULL\") == \"TRUE\")\n\n  # <rest of the test code>\n})\n\n\n\n.github/workflows/on_biweekly.yaml\n\non:\n  schedule:\n    - cron: '0 4 1,15 * *'\n\njobs:\n  rcmdcheck-main:\n    env:\n      R_TEST_FULL: 'TRUE' \n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n      - name: Check\n        uses: ./.github/actions/rcmdcheck\n\n\n\nUse of skip-if-not + environment variable to conditionally control which tests get executed\nUse of CICD to ensure that the skipped tests do still get run on a period basis"
+  },
+  {
+    "objectID": "index.html#solution-2---reducing-the-vignette-runtime",
+    "href": "index.html#solution-2---reducing-the-vignette-runtime",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 2 - Reducing the Vignette Runtime",
+    "text": "Solution 2 - Reducing the Vignette Runtime\n\n.\n├── DESCRIPTION\n├── R/\n├── tests/\n└── vignettes/\n    ├── quickstart.Rmd\n    ├── quickstart.html\n    └── quickstart.html.asis\n\n\nDESCRIPTION\n\nSuggests: R.rsp\nVignetteBuilder: R.rsp\n\n\nvignettes/quickstart.html.asis\n\n%\\VignetteIndexEntry{rbmi: Quickstart}\n%\\VignetteEngine{R.rsp::asis}\n\n\nUse of R.rsp package to use “asis” vignette builder\nThis is where we make the vignettes locally in advance and directly add them to the repo\nWhen R “builds” the vignette it simply just uses the pre-built file asis without re-running it\nThis opens up a problem though of how do we know if the vignette is up-to-date or even runs properly anymore?"
+  },
+  {
+    "objectID": "index.html#solution-2---reducing-the-vignette-runtime-1",
+    "href": "index.html#solution-2---reducing-the-vignette-runtime-1",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 2 - Reducing the Vignette Runtime",
+    "text": "Solution 2 - Reducing the Vignette Runtime\n\n\n.github/workflow/on_pr.yaml\n\n  vignettes:\n    runs-on: ubuntu-latest\n    container:\n      image: \"ghcr.io/insightsengineering/rbmi:latest\"\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n      - name: Build Vignettes\n        run: |\n          Rscript ./vignettes/build.R\n\n\n\n\n\nWe thus have a dedicated CICD job specifically to re-build the vignette.\nThis way Vignette execution is doing in parallel to the running of the test suite\nTrade off here though is that it means our vignettes are never executed on CRANs servers\nThis trade-off can be partially mitigated by setting up our own CICD process to use a variety of different OS’s / machine builds"
+  },
+  {
+    "objectID": "index.html#solution-3---testing-against-in-house-servers",
+    "href": "index.html#solution-3---testing-against-in-house-servers",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 3 - Testing Against In-House Servers",
+    "text": "Solution 3 - Testing Against In-House Servers\n\n\n\n\n\n\nUse of docker files to emulate our in-house servers\nHad double benefit of drastically reducing package install times on standard push / pr builds as all required dependencies are already installed and ready to go"
+  },
+  {
+    "objectID": "index.html#solution-3---testing-against-in-house-servers-1",
+    "href": "index.html#solution-3---testing-against-in-house-servers-1",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 3 - Testing Against In-House Servers",
+    "text": "Solution 3 - Testing Against In-House Servers\n\n\n.github/workflows/on_pr_main.yaml\n\njobs:\n  rcmdcheck:\n    strategy:\n      matrix:\n       config:\n        - { image: \"ghcr.io/insightsengineering/rbmi:r404\"}\n        - { image: \"ghcr.io/insightsengineering/rbmi:r410\"}\n        - { image: \"ghcr.io/insightsengineering/rbmi:latest\"}\n    runs-on: ubuntu-latest\n    container:\n      image: ${{ matrix.config.image }}\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n        \n      - name: Build src\n        uses: ./.github/actions/build-src\n        \n      - name: Check\n        uses: ./.github/actions/rcmdcheck\n\n\nFinal bit on this is just to highlight that we can use githubs matrix feature to ensure that our job is run against all the different combination of images and r versions that we want to ensure we can support"
+  },
+  {
+    "objectID": "index.html#additional-materials",
+    "href": "index.html#additional-materials",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Additional Materials",
+    "text": "Additional Materials\n\n\nFurther Reading\n\nGitHub Actions\nGitLab CI\n\nAdvanced Examples\n\nr-lib/actions\n{admiralci}\nDocker\n\nPresentation built with Quarto\nR/Pharma 2022 CI/CD Workshop\nThis Presentation\n\n\n\n\n\n\n<CI-CD GitHub>"
+  }
+]
