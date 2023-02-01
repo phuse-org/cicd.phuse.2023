@@ -7,7 +7,7 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.189">
+  <meta name="generator" content="quarto-1.2.269">
 
   <title>CI/CD in the {pharmaverse}</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,70 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -388,13 +324,16 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">CI/CD in the {pharmaverse}</h1>
-  <p class="subtitle"></p><p>R/Pharma</p>
-<p>November 10th, 2022</p>
-<p>Ben Straub (GSK) &amp; Craig Gower-Page (Roche)</p><p></p>
-</section>
+  <p class="subtitle"></p><p>PHUSE- US Connect</p>
+<p>March 7th, 2023</p>
+<p>Ben Straub (GSK) &amp; Dinakar Kulkarni (Roche)</p><p></p>
 
+<div class="quarto-title-authors">
+</div>
+
+</section>
 <section id="what-is-cicd" class="slide level2">
 <h2>What is CI/CD?</h2>
 <div class="fragment">
@@ -457,7 +396,7 @@
 </div>
 <!-- TODO add standard package logo or something -->
 <div class="column fragment" style="width:100%;">
-<p>We just did all these in the R/Pharma Workshop: <a href="https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/index.html#/title-slide">Intro to CI/CD for R Packages</a></p>
+<p>We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: <a href="https://youtu.be/OcNzurpCCpY">Intro to CI/CD for R Packages</a></p>
 </div>
 </section>
 <section>
@@ -642,320 +581,238 @@
 <p><img data-src="images/validation-report.png"></p>
 </div>
 </div>
-</section></section>
-<section>
-<section id="case-study---rbmi" class="title-slide slide level1 center">
-<h1>Case Study - rbmi</h1>
-
-</section>
-<section id="about-rbmi" class="slide level2">
-<h2>About rbmi</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:75%;">
-<ul>
-<li>Reference Based Multiple Imputation<br></li>
-<li>Implements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands<br></li>
-<li>Acknowledgements to Alessandro Noci, Marcel Wolbers &amp; Daniel Sabanes Bove<br></li>
-<li>Links
-<ul>
-<li><a href="https://arxiv.org/abs/2109.11162">https://arxiv.org/abs/2109.11162</a></li>
-<li><a href="https://github.com/insightsengineering/rbmi">https://github.com/insightsengineering/rbmi</a></li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:25%;">
-<p><img data-src="images/rbmi.png"></p>
-</div>
-</div>
-<aside class="notes">
-<p>Key component of the package is that many of the methods rely on resampling techniques to generate confidence intervals. This requires fitting potentially 1000’s of MMRM models which means run times tend to be in the order of minutes to hours for a full run of the package depending on the size of the data</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="package-development-problems" class="slide level2">
-<h2>Package Development Problems</h2>
-<p><br></p>
-<ul>
-<li>Installation takes &gt;3 minutes to compile STAN code</li>
-<li>Full test suite takes &gt;50 minutes to run</li>
-<li>Vignettes took &gt;5 minutes to run</li>
-<li>Need to release on in-house servers running legacy versions of R</li>
-<li>Many PR’s forgot to run <code>devtools::document()</code></li>
-<li>Many PR’s forgot to rebuild pkgdown site</li>
-</ul>
-<div class="centre">
-<p><img data-src="images/sad-emoji.png"></p>
-</div>
-<aside class="notes">
-<p>2 key issues that we are about to cover: - Need to get run times down to &lt;10 minutes - Need to ensure package works both on internal server and CRAN</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="solution-1---reducing-the-test-suite-runtime" class="slide level2">
-<h2>Solution 1 - Reducing the Test Suite Runtime</h2>
-<p><br></p>
-<div class="file-name">
-<p><code>tests/testthat/test-bigtest.R</code></p>
-</div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">test_that</span>(<span class="st">"Some long running section"</span>, {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">skip_if_not</span>(<span class="fu">Sys.getenv</span>(<span class="st">"R_TEST_FULL"</span>) <span class="sc">==</span> <span class="st">"TRUE"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="co"># &lt;rest of the test code&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<div class="fragment">
-<div class="file-name">
-<p><code>.github/workflows/on_biweekly.yaml</code></p>
-</div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">'0 4 1,15 * *'</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="at">  </span><span class="fu">rcmdcheck-main</span><span class="kw">:</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="at">    </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="at">      </span><span class="fu">R_TEST_FULL</span><span class="kw">:</span><span class="at"> </span><span class="st">'TRUE'</span><span class="at"> </span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> ./.github/actions/rcmdcheck</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<aside class="notes">
-<ul>
-<li>Use of skip-if-not + environment variable to conditionally control which tests get executed</li>
-<li>Use of CICD to ensure that the skipped tests do still get run on a period basis</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="solution-2---reducing-the-vignette-runtime" class="slide level2">
-<h2>Solution 2 - Reducing the Vignette Runtime</h2>
-<p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>.</span>
-<span id="cb3-2"><a href="#cb3-2"></a>├── DESCRIPTION</span>
-<span id="cb3-3"><a href="#cb3-3"></a>├── R/</span>
-<span id="cb3-4"><a href="#cb3-4"></a>├── tests/</span>
-<span id="cb3-5"><a href="#cb3-5"></a>└── vignettes/</span>
-<span id="cb3-6"><a href="#cb3-6"></a>    ├── quickstart.Rmd</span>
-<span id="cb3-7"><a href="#cb3-7"></a>    ├── quickstart.html</span>
-<span id="cb3-8"><a href="#cb3-8"></a>    └── quickstart.html.asis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<div class="file-name">
-<p><code>DESCRIPTION</code></p>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">Suggests:</span> R.rsp</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">VignetteBuilder:</span> R.rsp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
-<div class="file-name">
-<p><code>vignettes/quickstart.html.asis</code></p>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">%\VignetteIndexEntry{rbmi:</span> Quickstart}</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">%\VignetteEngine{R.rsp::asis}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<aside class="notes">
-<ul>
-<li>Use of R.rsp package to use “asis” vignette builder</li>
-<li>This is where we make the vignettes locally in advance and directly add them to the repo</li>
-<li>When R “builds” the vignette it simply just uses the pre-built file asis without re-running it</li>
-<li>This opens up a problem though of how do we know if the vignette is up-to-date or even runs properly anymore?</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="solution-2---reducing-the-vignette-runtime-1" class="slide level2" data-visibility="uncounted">
-<h2>Solution 2 - Reducing the Vignette Runtime</h2>
-<p><br></p>
-<div class="file-name">
-<p><code>.github/workflow/on_pr.yaml</code></p>
-</div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="at">  </span><span class="fu">vignettes</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="at">    </span><span class="fu">container</span><span class="kw">:</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="at">      </span><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"ghcr.io/insightsengineering/rbmi:latest"</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build Vignettes</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a>          Rscript ./vignettes/build.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="centre">
-<p><img data-src="images/github-vignette-ticks.png"></p>
-</div>
-<aside class="notes">
-<ul>
-<li>We thus have a dedicated CICD job specifically to re-build the vignette.</li>
-<li>This way Vignette execution is doing in parallel to the running of the test suite</li>
-<li>Trade off here though is that it means our vignettes are never executed on CRANs servers</li>
-<li>This trade-off can be partially mitigated by setting up our own CICD process to use a variety of different OS’s / machine builds</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<!-- ## Solution 3 - Reducing code Compilation Time
-<br/>
-
-::: {.file-name}
-`.github/actions/build-src/action.yml`
-:::
-```yaml
-    - name: Cache Compiled Stan Code
-      id: cache-pkgs
-      uses: actions/cache@v3
-      with:
-        path: src/*
-```
-
-::: {.centre}
-![](images/github-cache-build.png){style="height:350px"}
-:::
-
-::: {.notes}
-- Main point is compiling code (in our case stan code) can take a ton of time
-- We use githubs cache feature to restore the compiled code from previous builds to save that time
-- Con is that care with the configuration is required to ensure you aren't loading say MAC binaries
-on a windows image
-- Screenshot just shows the run time of the compile code "build src" is very low compared to the 
-usual 2-5 minutes
-::: -->
-</section>
-<section id="solution-3---testing-against-in-house-servers" class="slide level2">
-<h2>Solution 3 - Testing Against In-House Servers</h2>
-<p><br></p>
-<div class="centre">
-<p><img data-src="images/rbmi-docker-image.png" style="height:600px"></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Use of docker files to emulate our in-house servers</li>
-<li>Had double benefit of drastically reducing package install times on standard push / pr builds as all required dependencies are already installed and ready to go</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<!-- ## Solution 4 - Testing Against In-House Servers {visibility="uncounted"}
-<br/>
-
-::: {.file-name}
-`.github/workflows/build_docker.yaml`
-:::
-```yaml
-on:
-  push:
-    paths:
-      - 'misc/docker/**'
-
-jobs:
-  build:
-    steps:
-      - name: Checkout repository 
-        uses: actions/checkout@v2
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      
-      - name: Build and push image 
-        uses: docker/build-push-action@v2
-```
-::: {.notes}
-- Main point here is the targeted use of "paths" to only rebuild and redeploy our docker images
-when a change has occurred in the docker directory
-- The Job code is pretty redundant here as it misses a load of stuff to ensure if can fit on the 
-screen however hopefully it just gives some flavour of a job to build a docker file
-::: -->
-</section>
-<section id="solution-3---testing-against-in-house-servers-1" class="slide level2" data-visibility="uncounted">
-<h2>Solution 3 - Testing Against In-House Servers</h2>
-<p><br></p>
-<div class="file-name">
-<p><code>.github/workflows/on_pr_main.yaml</code></p>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="at">  </span><span class="fu">rcmdcheck</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="at">       </span><span class="fu">config</span><span class="kw">:</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"ghcr.io/insightsengineering/rbmi:r404"</span><span class="kw">}</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"ghcr.io/insightsengineering/rbmi:r410"</span><span class="kw">}</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"ghcr.io/insightsengineering/rbmi:latest"</span><span class="kw">}</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="at">    </span><span class="fu">container</span><span class="kw">:</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="at">      </span><span class="fu">image</span><span class="kw">:</span><span class="at"> ${{ matrix.config.image }}</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="at">        </span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build src</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> ./.github/actions/build-src</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="at">        </span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> ./.github/actions/rcmdcheck</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<aside class="notes">
-<ul>
-<li>Final bit on this is just to highlight that we can use githubs matrix feature to ensure that our job is run against all the different combination of images and r versions that we want to ensure we can support</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<!-- # Case Study - rbmi -->
+<!-- ## About rbmi -->
+<!-- <br/> -->
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="75%"} -->
+<!-- - Reference Based Multiple Imputation<br/> -->
+<!-- - Implements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands<br/> -->
+<!-- - Acknowledgements to Alessandro Noci, Marcel Wolbers & Daniel Sabanes Bove<br/> -->
+<!-- - Links -->
+<!--   - [https://arxiv.org/abs/2109.11162](https://arxiv.org/abs/2109.11162) -->
+<!--   - [https://github.com/insightsengineering/rbmi](https://github.com/insightsengineering/rbmi) -->
+<!-- ::: -->
+<!-- ::: {.column width="25%"} -->
+<!-- ![](images/rbmi.png) -->
+<!-- ::: -->
+<!-- :::: -->
+<!-- ::: {.notes} -->
+<!-- Key component of the package is that many of the methods rely on resampling techniques to  -->
+<!-- generate confidence intervals. This requires fitting potentially 1000's of MMRM models which -->
+<!-- means run times tend to be in the order of minutes to hours for a full run of the package -->
+<!-- depending on the size of the data -->
+<!-- ::: -->
+<!-- ## Package Development Problems -->
+<!-- <br/> -->
+<!-- - Installation takes >3 minutes to compile STAN code -->
+<!-- - Full test suite takes >50 minutes to run -->
+<!-- - Vignettes took >5 minutes to run -->
+<!-- - Need to release on in-house servers running legacy versions of R -->
+<!-- - Many PR's forgot to run `devtools::document()` -->
+<!-- - Many PR's forgot to rebuild pkgdown site -->
+<!-- <div class="centre"> -->
+<!-- ![](images/sad-emoji.png) -->
+<!-- </div> -->
+<!-- ::: {.notes} -->
+<!-- 2 key issues that we are about to cover: -->
+<!-- - Need to get run times down to <10 minutes -->
+<!-- - Need to ensure package works both on internal server and CRAN -->
+<!-- ::: -->
+<!-- ## Solution 1 - Reducing the Test Suite Runtime -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `tests/testthat/test-bigtest.R` -->
+<!-- ::: -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- test_that("Some long running section", { -->
+<!--   skip_if_not(Sys.getenv("R_TEST_FULL") == "TRUE") -->
+<!--   # <rest of the test code> -->
+<!-- }) -->
+<!-- ``` -->
+<!-- <br/> -->
+<!-- ::: {.fragment} -->
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/on_biweekly.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!-- on: -->
+<!--   schedule: -->
+<!--     - cron: '0 4 1,15 * *' -->
+<!-- jobs: -->
+<!--   rcmdcheck-main: -->
+<!--     env: -->
+<!--       R_TEST_FULL: 'TRUE'  -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+<!--       - name: Check -->
+<!--         uses: ./.github/actions/rcmdcheck -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- - Use of skip-if-not + environment variable to conditionally control which tests get executed -->
+<!-- - Use of CICD to ensure that the skipped tests do still get run on a period basis -->
+<!-- ::: -->
+<!-- ## Solution 2 - Reducing the Vignette Runtime -->
+<!-- <br/> -->
+<!-- ```text -->
+<!-- . -->
+<!-- ├── DESCRIPTION -->
+<!-- ├── R/ -->
+<!-- ├── tests/ -->
+<!-- └── vignettes/ -->
+<!--     ├── quickstart.Rmd -->
+<!--     ├── quickstart.html -->
+<!--     └── quickstart.html.asis -->
+<!-- ``` -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `DESCRIPTION` -->
+<!-- ::: -->
+<!-- ```{bash} -->
+<!-- #| eval: FALSE -->
+<!-- #| echo: TRUE  -->
+<!-- Suggests: R.rsp -->
+<!-- VignetteBuilder: R.rsp -->
+<!-- ``` -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `vignettes/quickstart.html.asis` -->
+<!-- ::: -->
+<!-- ```{bash} -->
+<!-- #| eval: FALSE -->
+<!-- #| echo: TRUE  -->
+<!-- %\VignetteIndexEntry{rbmi: Quickstart} -->
+<!-- %\VignetteEngine{R.rsp::asis} -->
+<!-- ``` -->
+<!-- ::: {.notes} -->
+<!-- - Use of R.rsp package  to use "asis" vignette builder -->
+<!-- - This is where we make the vignettes locally in advance and directly add them to the repo -->
+<!-- - When R "builds" the vignette it simply just uses the pre-built file asis without re-running it -->
+<!-- - This opens up a problem though of how do we know if the vignette is up-to-date or even runs properly -->
+<!-- anymore? -->
+<!-- ::: -->
+<!-- ## Solution 2 - Reducing the Vignette Runtime {visibility="uncounted"} -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `.github/workflow/on_pr.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!--   vignettes: -->
+<!--     runs-on: ubuntu-latest -->
+<!--     container: -->
+<!--       image: "ghcr.io/insightsengineering/rbmi:latest" -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+<!--       - name: Build Vignettes -->
+<!--         run: | -->
+<!--           Rscript ./vignettes/build.R -->
+<!-- ``` -->
+<!-- ::: {.centre} -->
+<!-- ![](images/github-vignette-ticks.png) -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- - We thus have a dedicated CICD job specifically to re-build the vignette.  -->
+<!-- - This way Vignette execution is doing in parallel to the running of the test suite -->
+<!-- - Trade off here though is that it means our vignettes are never executed on CRANs servers -->
+<!-- - This trade-off can be partially mitigated by setting up our own CICD process to use a variety of -->
+<!-- different OS's / machine builds -->
+<!-- ::: -->
+<!-- <!-- ## Solution 3 - Reducing code Compilation Time -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `.github/actions/build-src/action.yml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!--     - name: Cache Compiled Stan Code -->
+<!--       id: cache-pkgs -->
+<!--       uses: actions/cache@v3 -->
+<!--       with: -->
+<!--         path: src/* -->
+<!-- ``` -->
+<!-- ::: {.centre} -->
+<!-- ![](images/github-cache-build.png){style="height:350px"} -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- - Main point is compiling code (in our case stan code) can take a ton of time -->
+<!-- - We use githubs cache feature to restore the compiled code from previous builds to save that time -->
+<!-- - Con is that care with the configuration is required to ensure you aren't loading say MAC binaries -->
+<!-- on a windows image -->
+<!-- - Screenshot just shows the run time of the compile code "build src" is very low compared to the  -->
+<!-- usual 2-5 minutes -->
+<!-- ::: -->
+<p>–&gt;</p>
+<!-- ## Solution 3 - Testing Against In-House Servers -->
+<!-- <br/> -->
+<!-- ::: {.centre} -->
+<!-- ![](images/rbmi-docker-image.png){style="height:600px"} -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- - Use of docker files to emulate our in-house servers -->
+<!-- - Had double benefit of drastically reducing package install times on standard push / pr builds -->
+<!-- as all required dependencies are already installed and ready to go -->
+<!-- ::: -->
+<!-- <!-- ## Solution 4 - Testing Against In-House Servers {visibility="uncounted"} -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/build_docker.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!-- on: -->
+<!--   push: -->
+<!--     paths: -->
+<!--       - 'misc/docker/**' -->
+<!-- jobs: -->
+<!--   build: -->
+<!--     steps: -->
+<!--       - name: Checkout repository  -->
+<!--         uses: actions/checkout@v2 -->
+<!--       - name: Set up Docker Buildx -->
+<!--         uses: docker/setup-buildx-action@v1 -->
+<!--       - name: Build and push image  -->
+<!--         uses: docker/build-push-action@v2 -->
+<!-- ``` -->
+<!-- ::: {.notes} -->
+<!-- - Main point here is the targeted use of "paths" to only rebuild and redeploy our docker images -->
+<!-- when a change has occurred in the docker directory -->
+<!-- - The Job code is pretty redundant here as it misses a load of stuff to ensure if can fit on the  -->
+<!-- screen however hopefully it just gives some flavour of a job to build a docker file -->
+<!-- ::: -->
+<p>–&gt;</p>
+<!-- ## Solution 3 - Testing Against In-House Servers {visibility="uncounted"} -->
+<!-- <br/> -->
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/on_pr_main.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!-- jobs: -->
+<!--   rcmdcheck: -->
+<!--     strategy: -->
+<!--       matrix: -->
+<!--        config: -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:r404"} -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:r410"} -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:latest"} -->
+<!--     runs-on: ubuntu-latest -->
+<!--     container: -->
+<!--       image: ${{ matrix.config.image }} -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+<!--       - name: Build src -->
+<!--         uses: ./.github/actions/build-src -->
+<!--       - name: Check -->
+<!--         uses: ./.github/actions/rcmdcheck -->
+<!-- ``` -->
+<!-- ::: {.notes} -->
+<!-- - Final bit on this is just to highlight that we can use githubs matrix feature -->
+<!-- to ensure that our job is run against all the different combination of images and r versions -->
+<!-- that we want to ensure we can support -->
+<!-- ::: -->
 </section>
 <section id="additional-materials" class="slide level2">
 <h2>Additional Materials</h2>
@@ -976,60 +833,45 @@ screen however hopefully it just gives some flavour of a job to build a docker f
 <li><p><a href="https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/">R/Pharma 2022 CI/CD Workshop</a></p></li>
 <li><p><a href="https://pharmaverse.github.io/cicdworkshop.rinpharma2022/presentation/">This Presentation</a></p></li>
 </ul>
-<!--    Legacy slides
-
-
-## Need to ensure code works on internal servers
-
-DockerFile that emulates internal servers + cicd job to ensure code works in it
- 
-
-## CRAN limits runs to 10 minutes
-
-- Extract vignettes to "as-is" instead of being built on the fly
-- CICD test to then re-build vignettes to make sure they don't error  (rather than being done in the CRAN-check)
-- Extraction of long running unit tests into their own "extended" set of tests
-- CRON CICD job that will run the extended unit tests (which last an hour) whilst regular set of unit tests run fine in a couple of minutes
-
-
-## Unit tests take a long while to run due to the need to compile code
-
-Cache the src/ directory so that it is restored on each run (cache done separately per OS / R-version
-
-## Testing
-
-### Unit Tests
-
-1. Unit Tests: 
-2. Test Coverage:
-3. Integration tests:
-
-## Static Code Analysis
-
-1. Linting
-2. Spell Check
-3. Link & URL Checks
-
-## Documentation
-
-1. Man pages
-2. pkgdown site
-
--->
-<!--
-## 
-<div class="section-title">
-Case Study - RBMI
-</div>
-::: {.notes}
-An example of a manually constructed section title but looks like using a single "#" does the
-trick so probs able to just ignore this
-:::
--->
+<!-- <!--    Legacy slides -->
+<!-- ## Need to ensure code works on internal servers -->
+<!-- DockerFile that emulates internal servers + cicd job to ensure code works in it -->
+<!-- ## CRAN limits runs to 10 minutes -->
+<!-- - Extract vignettes to "as-is" instead of being built on the fly -->
+<!-- - CICD test to then re-build vignettes to make sure they don't error  (rather than being done in the CRAN-check) -->
+<!-- - Extraction of long running unit tests into their own "extended" set of tests -->
+<!-- - CRON CICD job that will run the extended unit tests (which last an hour) whilst regular set of unit tests run fine in a couple of minutes -->
+<!-- ## Unit tests take a long while to run due to the need to compile code -->
+<!-- Cache the src/ directory so that it is restored on each run (cache done separately per OS / R-version -->
+<!-- ## Testing -->
+<!-- ### Unit Tests -->
+<!-- 1. Unit Tests:  -->
+<!-- 2. Test Coverage: -->
+<!-- 3. Integration tests: -->
+<!-- ## Static Code Analysis -->
+<!-- 1. Linting -->
+<!-- 2. Spell Check -->
+<!-- 3. Link & URL Checks -->
+<!-- ## Documentation -->
+<!-- 1. Man pages -->
+<!-- 2. pkgdown site -->
+<!-- -->
+<p>–&gt;</p>
+<!-- <!-- -->
+<!-- ##  -->
+<!-- <div class="section-title"> -->
+<!-- Case Study - RBMI -->
+<!-- </div> -->
+<!-- ::: {.notes} -->
+<!-- An example of a manually constructed section title but looks like using a single "#" does the -->
+<!-- trick so probs able to just ignore this -->
+<!-- ::: -->
+<!-- -->
+<p>–&gt;</p>
 
 
 <img src="https://avatars.githubusercontent.com/u/84541169" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>&lt;<a href="https://github.com/pharmaverse/cicdworkshop.rinpharma2022">CI-CD GitHub</a>&gt;</p>
+<p>&lt;<a href="https://github.com/bms63/cicd.phuse.2023">CI-CD GitHub</a>&gt;</p>
 </div>
 </section></section>
     </div>
@@ -1251,12 +1093,15 @@ trick so probs able to just ignore this
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1267,13 +1112,6 @@ trick so probs able to just ignore this
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -1325,7 +1163,24 @@ trick so probs able to just ignore this
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1363,24 +1218,42 @@ trick so probs able to just ignore this
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1388,7 +1261,7 @@ trick so probs able to just ignore this
             return filterRegex.test(href) || localhostRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-        var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+        var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
