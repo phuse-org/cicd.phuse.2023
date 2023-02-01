@@ -1,11 +1,11 @@
 ---
 title: "CI/CD in the {pharmaverse}"
 subtitle: |
-  R/Pharma
+  PHUSE- US Connect
 
-  November 10th, 2022
+  March 7th, 2023
 
-  Ben Straub (GSK) & Craig Gower-Page (Roche)
+  Ben Straub (GSK) & Dinakar Kulkarni (Roche)
 execute:
   echo: false
   warning: false
@@ -20,7 +20,7 @@ format:
       buttons: false
     preview-links: auto
     logo: https://avatars.githubusercontent.com/u/84541169
-    footer: <[CI-CD GitHub](https://github.com/pharmaverse/cicdworkshop.rinpharma2022)>
+    footer: <[CI-CD GitHub](https://github.com/bms63/cicd.phuse.2023)>
     theme: [simple, custom.scss]
     from: markdown+emoji
     link-external-icon: true
@@ -105,7 +105,7 @@ CI/CD bridges the gaps between development and operation activities and teams by
 <!-- TODO add standard package logo or something -->
 
 ::: {.column width="100%" .fragment}
-We just did all these in the R/Pharma Workshop: [Intro to CI/CD for R Packages](https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/index.html#/title-slide)
+We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: [Intro to CI/CD for R Packages](https://youtu.be/OcNzurpCCpY)
 :::
 
 # Case Study - admiral
@@ -318,310 +318,310 @@ We just did all these in the R/Pharma Workshop: [Intro to CI/CD for R Packages](
 
 ::::
 
-# Case Study - rbmi
+<!-- # Case Study - rbmi -->
 
-## About rbmi
-<br/>
+<!-- ## About rbmi -->
+<!-- <br/> -->
 
-:::: {.columns}
+<!-- :::: {.columns} -->
 
-::: {.column width="75%"}
-- Reference Based Multiple Imputation<br/>
-- Implements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands<br/>
-- Acknowledgements to Alessandro Noci, Marcel Wolbers & Daniel Sabanes Bove<br/>
-- Links
-  - [https://arxiv.org/abs/2109.11162](https://arxiv.org/abs/2109.11162)
-  - [https://github.com/insightsengineering/rbmi](https://github.com/insightsengineering/rbmi)
-:::
+<!-- ::: {.column width="75%"} -->
+<!-- - Reference Based Multiple Imputation<br/> -->
+<!-- - Implements imputation for longitudinal data in accordance with the ICH E9(R1) Addendum on Estimands<br/> -->
+<!-- - Acknowledgements to Alessandro Noci, Marcel Wolbers & Daniel Sabanes Bove<br/> -->
+<!-- - Links -->
+<!--   - [https://arxiv.org/abs/2109.11162](https://arxiv.org/abs/2109.11162) -->
+<!--   - [https://github.com/insightsengineering/rbmi](https://github.com/insightsengineering/rbmi) -->
+<!-- ::: -->
 
-::: {.column width="25%"}
-![](images/rbmi.png)
-:::
-::::
+<!-- ::: {.column width="25%"} -->
+<!-- ![](images/rbmi.png) -->
+<!-- ::: -->
+<!-- :::: -->
 
-::: {.notes}
-Key component of the package is that many of the methods rely on resampling techniques to 
-generate confidence intervals. This requires fitting potentially 1000's of MMRM models which
-means run times tend to be in the order of minutes to hours for a full run of the package
-depending on the size of the data
-:::
+<!-- ::: {.notes} -->
+<!-- Key component of the package is that many of the methods rely on resampling techniques to  -->
+<!-- generate confidence intervals. This requires fitting potentially 1000's of MMRM models which -->
+<!-- means run times tend to be in the order of minutes to hours for a full run of the package -->
+<!-- depending on the size of the data -->
+<!-- ::: -->
 
 
 
 
 
 
-## Package Development Problems
-<br/>
+<!-- ## Package Development Problems -->
+<!-- <br/> -->
 
-- Installation takes >3 minutes to compile STAN code
-- Full test suite takes >50 minutes to run
-- Vignettes took >5 minutes to run
-- Need to release on in-house servers running legacy versions of R
-- Many PR's forgot to run `devtools::document()`
-- Many PR's forgot to rebuild pkgdown site
+<!-- - Installation takes >3 minutes to compile STAN code -->
+<!-- - Full test suite takes >50 minutes to run -->
+<!-- - Vignettes took >5 minutes to run -->
+<!-- - Need to release on in-house servers running legacy versions of R -->
+<!-- - Many PR's forgot to run `devtools::document()` -->
+<!-- - Many PR's forgot to rebuild pkgdown site -->
 
-<div class="centre">
-![](images/sad-emoji.png)
-</div>
+<!-- <div class="centre"> -->
+<!-- ![](images/sad-emoji.png) -->
+<!-- </div> -->
 
-::: {.notes}
-2 key issues that we are about to cover:
-- Need to get run times down to <10 minutes
-- Need to ensure package works both on internal server and CRAN
-:::
+<!-- ::: {.notes} -->
+<!-- 2 key issues that we are about to cover: -->
+<!-- - Need to get run times down to <10 minutes -->
+<!-- - Need to ensure package works both on internal server and CRAN -->
+<!-- ::: -->
 
 
 
 
 
 
-## Solution 1 - Reducing the Test Suite Runtime
-<br/>
+<!-- ## Solution 1 - Reducing the Test Suite Runtime -->
+<!-- <br/> -->
 
-::: {.file-name}
-`tests/testthat/test-bigtest.R`
-:::
-```{r}
-#| eval: false
-#| echo: true
-test_that("Some long running section", {
-  skip_if_not(Sys.getenv("R_TEST_FULL") == "TRUE")
+<!-- ::: {.file-name} -->
+<!-- `tests/testthat/test-bigtest.R` -->
+<!-- ::: -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- test_that("Some long running section", { -->
+<!--   skip_if_not(Sys.getenv("R_TEST_FULL") == "TRUE") -->
 
-  # <rest of the test code>
-})
-```
+<!--   # <rest of the test code> -->
+<!-- }) -->
+<!-- ``` -->
 
-<br/>
+<!-- <br/> -->
 
-::: {.fragment}
-::: {.file-name}
-`.github/workflows/on_biweekly.yaml`
-:::
-```yaml
-on:
-  schedule:
-    - cron: '0 4 1,15 * *'
+<!-- ::: {.fragment} -->
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/on_biweekly.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!-- on: -->
+<!--   schedule: -->
+<!--     - cron: '0 4 1,15 * *' -->
 
-jobs:
-  rcmdcheck-main:
-    env:
-      R_TEST_FULL: 'TRUE' 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Check
-        uses: ./.github/actions/rcmdcheck
-```
-:::
+<!-- jobs: -->
+<!--   rcmdcheck-main: -->
+<!--     env: -->
+<!--       R_TEST_FULL: 'TRUE'  -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+<!--       - name: Check -->
+<!--         uses: ./.github/actions/rcmdcheck -->
+<!-- ``` -->
+<!-- ::: -->
 
-::: {.notes}
-- Use of skip-if-not + environment variable to conditionally control which tests get executed
-- Use of CICD to ensure that the skipped tests do still get run on a period basis
-:::
+<!-- ::: {.notes} -->
+<!-- - Use of skip-if-not + environment variable to conditionally control which tests get executed -->
+<!-- - Use of CICD to ensure that the skipped tests do still get run on a period basis -->
+<!-- ::: -->
 
 
 
 
-## Solution 2 - Reducing the Vignette Runtime
+<!-- ## Solution 2 - Reducing the Vignette Runtime -->
 
-<br/>
+<!-- <br/> -->
 
-
+
 
-```text
-.
-├── DESCRIPTION
-├── R/
-├── tests/
-└── vignettes/
-    ├── quickstart.Rmd
-    ├── quickstart.html
-    └── quickstart.html.asis
-```
-<br/>
+<!-- ```text -->
+<!-- . -->
+<!-- ├── DESCRIPTION -->
+<!-- ├── R/ -->
+<!-- ├── tests/ -->
+<!-- └── vignettes/ -->
+<!--     ├── quickstart.Rmd -->
+<!--     ├── quickstart.html -->
+<!--     └── quickstart.html.asis -->
+<!-- ``` -->
+<!-- <br/> -->
 
-::: {.file-name}
-`DESCRIPTION`
-:::
-```{bash}
-#| eval: FALSE
-#| echo: TRUE 
-Suggests: R.rsp
-VignetteBuilder: R.rsp
-```
+<!-- ::: {.file-name} -->
+<!-- `DESCRIPTION` -->
+<!-- ::: -->
+<!-- ```{bash} -->
+<!-- #| eval: FALSE -->
+<!-- #| echo: TRUE  -->
+<!-- Suggests: R.rsp -->
+<!-- VignetteBuilder: R.rsp -->
+<!-- ``` -->
 
-<br/>
+<!-- <br/> -->
 
 
-::: {.file-name}
-`vignettes/quickstart.html.asis`
-:::
-```{bash}
-#| eval: FALSE
-#| echo: TRUE 
-%\VignetteIndexEntry{rbmi: Quickstart}
-%\VignetteEngine{R.rsp::asis}
-```
-
-::: {.notes}
-- Use of R.rsp package  to use "asis" vignette builder
-- This is where we make the vignettes locally in advance and directly add them to the repo
-- When R "builds" the vignette it simply just uses the pre-built file asis without re-running it
-- This opens up a problem though of how do we know if the vignette is up-to-date or even runs properly
-anymore?
-:::
-
-
-## Solution 2 - Reducing the Vignette Runtime {visibility="uncounted"}
-
-<br/>
-
-
-::: {.file-name}
-`.github/workflow/on_pr.yaml`
-:::
-```yaml
-  vignettes:
-    runs-on: ubuntu-latest
-    container:
-      image: "ghcr.io/insightsengineering/rbmi:latest"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Build Vignettes
-        run: |
-          Rscript ./vignettes/build.R
-```
-
-
-::: {.centre}
-![](images/github-vignette-ticks.png)
-:::
-
-::: {.notes}
-- We thus have a dedicated CICD job specifically to re-build the vignette. 
-- This way Vignette execution is doing in parallel to the running of the test suite
-- Trade off here though is that it means our vignettes are never executed on CRANs servers
-- This trade-off can be partially mitigated by setting up our own CICD process to use a variety of
-different OS's / machine builds
-:::
-
-
-
-
-<!-- ## Solution 3 - Reducing code Compilation Time
-<br/>
-
-::: {.file-name}
-`.github/actions/build-src/action.yml`
-:::
-```yaml
-    - name: Cache Compiled Stan Code
-      id: cache-pkgs
-      uses: actions/cache@v3
-      with:
-        path: src/*
-```
-
-::: {.centre}
-![](images/github-cache-build.png){style="height:350px"}
-:::
-
-::: {.notes}
-- Main point is compiling code (in our case stan code) can take a ton of time
-- We use githubs cache feature to restore the compiled code from previous builds to save that time
-- Con is that care with the configuration is required to ensure you aren't loading say MAC binaries
-on a windows image
-- Screenshot just shows the run time of the compile code "build src" is very low compared to the 
-usual 2-5 minutes
-::: -->
-
-
-
-## Solution 3 - Testing Against In-House Servers
-<br/>
-
-::: {.centre}
-![](images/rbmi-docker-image.png){style="height:600px"}
-:::
-
-::: {.notes}
-- Use of docker files to emulate our in-house servers
-- Had double benefit of drastically reducing package install times on standard push / pr builds
-as all required dependencies are already installed and ready to go
-:::
-
-
-<!-- ## Solution 4 - Testing Against In-House Servers {visibility="uncounted"}
-<br/>
-
-::: {.file-name}
-`.github/workflows/build_docker.yaml`
-:::
-```yaml
-on:
-  push:
-    paths:
-      - 'misc/docker/**'
-
-jobs:
-  build:
-    steps:
-      - name: Checkout repository 
-        uses: actions/checkout@v2
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      
-      - name: Build and push image 
-        uses: docker/build-push-action@v2
-```
-::: {.notes}
-- Main point here is the targeted use of "paths" to only rebuild and redeploy our docker images
-when a change has occurred in the docker directory
-- The Job code is pretty redundant here as it misses a load of stuff to ensure if can fit on the 
-screen however hopefully it just gives some flavour of a job to build a docker file
-::: -->
-
-
-
-
-## Solution 3 - Testing Against In-House Servers {visibility="uncounted"}
-<br/>
-
-::: {.file-name}
-`.github/workflows/on_pr_main.yaml`
-:::
-
-```yaml
-jobs:
-  rcmdcheck:
-    strategy:
-      matrix:
-       config:
-        - { image: "ghcr.io/insightsengineering/rbmi:r404"}
-        - { image: "ghcr.io/insightsengineering/rbmi:r410"}
-        - { image: "ghcr.io/insightsengineering/rbmi:latest"}
-    runs-on: ubuntu-latest
-    container:
-      image: ${{ matrix.config.image }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Build src
-        uses: ./.github/actions/build-src
-        
-      - name: Check
-        uses: ./.github/actions/rcmdcheck
-```
-
-::: {.notes}
-- Final bit on this is just to highlight that we can use githubs matrix feature
-to ensure that our job is run against all the different combination of images and r versions
-that we want to ensure we can support
-:::
+<!-- ::: {.file-name} -->
+<!-- `vignettes/quickstart.html.asis` -->
+<!-- ::: -->
+<!-- ```{bash} -->
+<!-- #| eval: FALSE -->
+<!-- #| echo: TRUE  -->
+<!-- %\VignetteIndexEntry{rbmi: Quickstart} -->
+<!-- %\VignetteEngine{R.rsp::asis} -->
+<!-- ``` -->
+
+<!-- ::: {.notes} -->
+<!-- - Use of R.rsp package  to use "asis" vignette builder -->
+<!-- - This is where we make the vignettes locally in advance and directly add them to the repo -->
+<!-- - When R "builds" the vignette it simply just uses the pre-built file asis without re-running it -->
+<!-- - This opens up a problem though of how do we know if the vignette is up-to-date or even runs properly -->
+<!-- anymore? -->
+<!-- ::: -->
+
+
+<!-- ## Solution 2 - Reducing the Vignette Runtime {visibility="uncounted"} -->
+
+<!-- <br/> -->
+
+
+<!-- ::: {.file-name} -->
+<!-- `.github/workflow/on_pr.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!--   vignettes: -->
+<!--     runs-on: ubuntu-latest -->
+<!--     container: -->
+<!--       image: "ghcr.io/insightsengineering/rbmi:latest" -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+<!--       - name: Build Vignettes -->
+<!--         run: | -->
+<!--           Rscript ./vignettes/build.R -->
+<!-- ``` -->
+
+
+<!-- ::: {.centre} -->
+<!-- ![](images/github-vignette-ticks.png) -->
+<!-- ::: -->
+
+<!-- ::: {.notes} -->
+<!-- - We thus have a dedicated CICD job specifically to re-build the vignette.  -->
+<!-- - This way Vignette execution is doing in parallel to the running of the test suite -->
+<!-- - Trade off here though is that it means our vignettes are never executed on CRANs servers -->
+<!-- - This trade-off can be partially mitigated by setting up our own CICD process to use a variety of -->
+<!-- different OS's / machine builds -->
+<!-- ::: -->
+
+
+
+
+<!-- <!-- ## Solution 3 - Reducing code Compilation Time -->
+<!-- <br/> -->
+
+<!-- ::: {.file-name} -->
+<!-- `.github/actions/build-src/action.yml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!--     - name: Cache Compiled Stan Code -->
+<!--       id: cache-pkgs -->
+<!--       uses: actions/cache@v3 -->
+<!--       with: -->
+<!--         path: src/* -->
+<!-- ``` -->
+
+<!-- ::: {.centre} -->
+<!-- ![](images/github-cache-build.png){style="height:350px"} -->
+<!-- ::: -->
+
+<!-- ::: {.notes} -->
+<!-- - Main point is compiling code (in our case stan code) can take a ton of time -->
+<!-- - We use githubs cache feature to restore the compiled code from previous builds to save that time -->
+<!-- - Con is that care with the configuration is required to ensure you aren't loading say MAC binaries -->
+<!-- on a windows image -->
+<!-- - Screenshot just shows the run time of the compile code "build src" is very low compared to the  -->
+<!-- usual 2-5 minutes -->
+<!-- ::: --> -->
+
+
+
+<!-- ## Solution 3 - Testing Against In-House Servers -->
+<!-- <br/> -->
+
+<!-- ::: {.centre} -->
+<!-- ![](images/rbmi-docker-image.png){style="height:600px"} -->
+<!-- ::: -->
+
+<!-- ::: {.notes} -->
+<!-- - Use of docker files to emulate our in-house servers -->
+<!-- - Had double benefit of drastically reducing package install times on standard push / pr builds -->
+<!-- as all required dependencies are already installed and ready to go -->
+<!-- ::: -->
+
+
+<!-- <!-- ## Solution 4 - Testing Against In-House Servers {visibility="uncounted"} -->
+<!-- <br/> -->
+
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/build_docker.yaml` -->
+<!-- ::: -->
+<!-- ```yaml -->
+<!-- on: -->
+<!--   push: -->
+<!--     paths: -->
+<!--       - 'misc/docker/**' -->
+
+<!-- jobs: -->
+<!--   build: -->
+<!--     steps: -->
+<!--       - name: Checkout repository  -->
+<!--         uses: actions/checkout@v2 -->
+
+<!--       - name: Set up Docker Buildx -->
+<!--         uses: docker/setup-buildx-action@v1 -->
+
+<!--       - name: Build and push image  -->
+<!--         uses: docker/build-push-action@v2 -->
+<!-- ``` -->
+<!-- ::: {.notes} -->
+<!-- - Main point here is the targeted use of "paths" to only rebuild and redeploy our docker images -->
+<!-- when a change has occurred in the docker directory -->
+<!-- - The Job code is pretty redundant here as it misses a load of stuff to ensure if can fit on the  -->
+<!-- screen however hopefully it just gives some flavour of a job to build a docker file -->
+<!-- ::: --> -->
+
+
+
+
+<!-- ## Solution 3 - Testing Against In-House Servers {visibility="uncounted"} -->
+<!-- <br/> -->
+
+<!-- ::: {.file-name} -->
+<!-- `.github/workflows/on_pr_main.yaml` -->
+<!-- ::: -->
+
+<!-- ```yaml -->
+<!-- jobs: -->
+<!--   rcmdcheck: -->
+<!--     strategy: -->
+<!--       matrix: -->
+<!--        config: -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:r404"} -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:r410"} -->
+<!--         - { image: "ghcr.io/insightsengineering/rbmi:latest"} -->
+<!--     runs-on: ubuntu-latest -->
+<!--     container: -->
+<!--       image: ${{ matrix.config.image }} -->
+<!--     steps: -->
+<!--       - name: Checkout -->
+<!--         uses: actions/checkout@v3 -->
+
+<!--       - name: Build src -->
+<!--         uses: ./.github/actions/build-src -->
+
+<!--       - name: Check -->
+<!--         uses: ./.github/actions/rcmdcheck -->
+<!-- ``` -->
+
+<!-- ::: {.notes} -->
+<!-- - Final bit on this is just to highlight that we can use githubs matrix feature -->
+<!-- to ensure that our job is run against all the different combination of images and r versions -->
+<!-- that we want to ensure we can support -->
+<!-- ::: -->
 
 
 
@@ -643,54 +643,54 @@ that we want to ensure we can support
 - [This Presentation](https://pharmaverse.github.io/cicdworkshop.rinpharma2022/presentation/)
 
 
-<!--    Legacy slides
+<!-- <!--    Legacy slides -->
 
 
-## Need to ensure code works on internal servers
+<!-- ## Need to ensure code works on internal servers -->
 
-DockerFile that emulates internal servers + cicd job to ensure code works in it
- 
-
-## CRAN limits runs to 10 minutes
-
-- Extract vignettes to "as-is" instead of being built on the fly
-- CICD test to then re-build vignettes to make sure they don't error  (rather than being done in the CRAN-check)
-- Extraction of long running unit tests into their own "extended" set of tests
-- CRON CICD job that will run the extended unit tests (which last an hour) whilst regular set of unit tests run fine in a couple of minutes
+<!-- DockerFile that emulates internal servers + cicd job to ensure code works in it -->
 
 
-## Unit tests take a long while to run due to the need to compile code
+<!-- ## CRAN limits runs to 10 minutes -->
 
-Cache the src/ directory so that it is restored on each run (cache done separately per OS / R-version
+<!-- - Extract vignettes to "as-is" instead of being built on the fly -->
+<!-- - CICD test to then re-build vignettes to make sure they don't error  (rather than being done in the CRAN-check) -->
+<!-- - Extraction of long running unit tests into their own "extended" set of tests -->
+<!-- - CRON CICD job that will run the extended unit tests (which last an hour) whilst regular set of unit tests run fine in a couple of minutes -->
 
-## Testing
 
-### Unit Tests
+<!-- ## Unit tests take a long while to run due to the need to compile code -->
 
-1. Unit Tests: 
-2. Test Coverage:
-3. Integration tests:
+<!-- Cache the src/ directory so that it is restored on each run (cache done separately per OS / R-version -->
 
-## Static Code Analysis
+<!-- ## Testing -->
 
-1. Linting
-2. Spell Check
-3. Link & URL Checks
+<!-- ### Unit Tests -->
 
-## Documentation
+<!-- 1. Unit Tests:  -->
+<!-- 2. Test Coverage: -->
+<!-- 3. Integration tests: -->
 
-1. Man pages
-2. pkgdown site
+<!-- ## Static Code Analysis -->
 
--->
+<!-- 1. Linting -->
+<!-- 2. Spell Check -->
+<!-- 3. Link & URL Checks -->
 
-<!--
-## 
-<div class="section-title">
-Case Study - RBMI
-</div>
-::: {.notes}
-An example of a manually constructed section title but looks like using a single "#" does the
-trick so probs able to just ignore this
-:::
--->
+<!-- ## Documentation -->
+
+<!-- 1. Man pages -->
+<!-- 2. pkgdown site -->
+
+<!-- --> -->
+
+<!-- <!-- -->
+<!-- ##  -->
+<!-- <div class="section-title"> -->
+<!-- Case Study - RBMI -->
+<!-- </div> -->
+<!-- ::: {.notes} -->
+<!-- An example of a manually constructed section title but looks like using a single "#" does the -->
+<!-- trick so probs able to just ignore this -->
+<!-- ::: -->
+<!-- --> -->
