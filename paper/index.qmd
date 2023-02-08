@@ -1,0 +1,138 @@
+---
+title: "CI/CD in the {pharmaverse}"
+subtitle: >
+  PHUSE- US Connect
+  March 7th, 2023
+  Ben Straub (GSK)
+  Dinakar Kulkarni (Roche)
+format:
+  pdf:
+    documentclass: scrartcl
+    papersize: letter
+    toc: false
+    number-sections: false
+    colorlinks: true
+---
+
+# ABSTRACT
+
+A brief abstract at the beginning summarises and highlights the major points of your paper. Check your margins!
+They should print so that both the left and right margins are ¾ inch.
+
+# INTRODUCTION
+
+The introduction explains the purpose and scope of your paper and provides readers with any general information
+they need to understand your paper.
+
+# Admiral
+
+This is a main topic in the paper body. This is the paper body. This is the paper body. This is the paper body. This is
+the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is
+the paper body. This is the paper body. This is the paper body. This is the paper body.
+If you need to include source code:
+
+```
+data one;
+set two;
+if mix(var1, var2) > 0 then do;
+```
+
+Continuation of body – after source code.
+
+## SUBHEAD
+
+This is subtopic for the above. This is the paper body. This is the paper body. This is the paper body. This is the
+paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the
+paper body.
+If you need to include source code:
+```
+data one;
+set two;
+if mix(var1, var2) > 0 then do;
+```
+
+Continuation of body – after source code.
+
+# NEST 
+
+This is a main topic in the paper body. This is the paper body. This is the paper body. This is the paper body. This is
+the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is
+the paper body. This is the paper body.
+If you need to include source code:
+
+```
+data one;
+set two;
+if mix(var1, var2) > 0 then do;
+```
+
+Continuation of body – after source code.
+
+## SUBHEAD
+
+This is subtopic for the above. This is the paper body. This is the paper body. This is the paper body. This is the
+paper body. This is the paper body. This is the paper body. This is the paper body.
+This is the paper body.
+If you need to include source code:
+
+```
+data one;
+set two;
+if mix(var1, var2) > 0 then do;
+```
+
+Continuation of body – after source code.
+
+
+## SUBHEAD
+
+This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body.
+This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body.
+This is the paper body. This is the paper body. This is the paper body.
+If you need to include source code:
+
+```
+data one;
+set two;
+if mix(var1, var2) > 0 then do;
+```
+
+Continuation of body – after source code.
+
+# CONCLUSION
+
+The conclusion summarises your paper and ties together any loose ends. You can use the conclusion to make any
+final points such as recommendations predictions, or judgments.
+
+# REFERENCES
+
+References go at the end of your paper. This section is not required.
+
+# ACKNOWLEDGMENTS
+
+Acknowledgments go after your references. This section is not required.
+
+# RECOMMENDED READING
+
+Recommended reading lists go after your acknowledgments. This section is not required.
+
+# CONTACT INFORMATION
+
+(In case a reader wants to get in touch with you, please put your contact information at the end of the paper.)
+Your comments and questions are valued and encouraged. Contact the author at:
+
+Author Name: Ben Straub
+
+Company: GSK
+
+Address: 1000 Black Rock Rd
+
+City / Postcode: Collegeville, PA 19426
+
+Work Phone: (610) 917-3493
+
+Email: ben.x.straub@gsk.com
+
+Web: www.gsk.com
+
+Brand and product names are trademarks of their respective companies.

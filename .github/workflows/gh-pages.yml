@@ -1,4 +1,4 @@
-name: Publish Presentation Slides
+name: Publish Site
 
 on:
   workflow_dispatch:
@@ -7,11 +7,11 @@ on:
      - main
     paths:
       - 'presentation/**'
-      - 'workshop/**'
+      - 'paper/**'
 
 jobs:
   publish:
-    name: Build & Deploy
+    name: Build & Deploy Quarto Projects
     runs-on: ubuntu-latest
     container:
       image: rocker/tidyverse:latest
@@ -22,7 +22,7 @@ jobs:
       matrix:
         QUARTO_DIR:
           - presentation
-          - workshop
+          - paper
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -38,3 +38,19 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./${{ matrix.QUARTO_DIR }}/_site
           destination_dir: ${{ matrix.QUARTO_DIR }}
+
+  index:
+    name: Index page
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Publish index page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontpage
+          destination_dir: "."
