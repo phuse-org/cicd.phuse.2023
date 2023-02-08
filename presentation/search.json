@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "index.html#what-is-cicd",
+    "href": "index.html#what-is-cicd",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "What is CI/CD?",
+    "text": "What is CI/CD?\n\n\nContinuous Integration (CI): Frequent merging of several small changes into a main branch\n\n\n\n\nContinuous Delivery (CD): Repeatable deployment process when deciding to deploy\n\n\n\nCI/CD bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWikipedia: CI/CD {pharmaverse}"
+  },
+  {
+    "objectID": "index.html#does-it-help",
+    "href": "index.html#does-it-help",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Does it help?",
+    "text": "Does it help?\n\n\n\n\n…Yes! Yes, it does!!\n\n\nXKCD"
+  },
+  {
+    "objectID": "index.html#how-does-cicd-help-r-packages",
+    "href": "index.html#how-does-cicd-help-r-packages",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "How does CI/CD help R packages?",
+    "text": "How does CI/CD help R packages?\n\n\nCatch issues (bugs) early on\nUser base on multiple OSes and multiple R versions\nFaster turnaround on Code Review\nMultiple Contributors on your R Package\nEnforce style conventions and preferences\nMeasure test coverage for new code\nKeep docs up-to-date\nAnd we can just keep going!\n\n\n\n\nWe covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: Intro to CI/CD for R Packages"
+  },
+  {
+    "objectID": "index.html#about-admiral",
+    "href": "index.html#about-admiral",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "About admiral",
+    "text": "About admiral\n\n\n\n\nProvide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.\nADaM is one of the required standards for data submission to FDA (U.S.) and PMDA (Japan) for clinical trials\nLinks\n\nCDISC\nhttps://github.com/pharmaverse/admiral\n\nIssue 1: Checking ADaM Template code\nIssue 2: Common CI/CD workflows for the admiral family of packages"
+  },
+  {
+    "objectID": "index.html#issue-1---how-to-check-our-template-code",
+    "href": "index.html#issue-1---how-to-check-our-template-code",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Issue 1 - How to Check our Template Code",
+    "text": "Issue 1 - How to Check our Template Code\n\n\n\nCreate a reference files to build common ADaM datasets that shows users how to implement our functions\nWay less text than a Vignette - Code is ready to go and build a dataset\nWhere we store this code is not checked by R-CMD\nHow to ensure code stays up to date with deprecated functions or unforeseen bugs get in from functions working together?\nCI/CD for the win!"
+  },
+  {
+    "objectID": "index.html#solution-1---cicd-for-templates",
+    "href": "index.html#solution-1---cicd-for-templates",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 1 - CI/CD for Templates",
+    "text": "Solution 1 - CI/CD for Templates\n\n\n\nDedicated CI/CD workflow that executes the Template code\nOnce a Code Review is completed the Check Template Workflow is executed\nIf any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.\n\n\n\n.github/workflows/check-templates.yml"
+  },
+  {
+    "objectID": "index.html#issue-2---admiral-upstream-and-downstream-dependencies",
+    "href": "index.html#issue-2---admiral-upstream-and-downstream-dependencies",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Issue 2 - admiral upstream and downstream dependencies",
+    "text": "Issue 2 - admiral upstream and downstream dependencies\n\n\n\nAs you can imagine there can be a lot of different types of ADaMs!\nExtension packages focus on specific disease areas like oncology\nThe admiral family has a package for developers, template R package repo and dummy data\nEek!! How to keep this all in line!"
+  },
+  {
+    "objectID": "index.html#solution-2---common-cicd-workflows-for-admiral-upstream-and-downstream-dependencies",
+    "href": "index.html#solution-2---common-cicd-workflows-for-admiral-upstream-and-downstream-dependencies",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies",
+    "text": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies\n\n\n\nUsing admiralci, we have a common set of CI/CD workflows\nDevelopers moving between packages are familiar with these workflows\nCommon documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors"
+  },
+  {
+    "objectID": "index.html#about-nest",
+    "href": "index.html#about-nest",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "About NEST",
+    "text": "About NEST\n\n\n\n\nA collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization\ntern for creating TLGs\nteal for creating exploratory web applications for analyzing clinical trial data\nLinks\n\nrtables\nNEST GitHub Organization"
+  },
+  {
+    "objectID": "index.html#use-case-1---testing-packages-as-a-cohort",
+    "href": "index.html#use-case-1---testing-packages-as-a-cohort",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 1 - Testing Packages as a Cohort",
+    "text": "Use Case 1 - Testing Packages as a Cohort\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
+  },
+  {
+    "objectID": "index.html#use-case-2---shiny-app-testing-deployment",
+    "href": "index.html#use-case-2---shiny-app-testing-deployment",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 2 - Shiny App Testing & Deployment",
+    "text": "Use Case 2 - Shiny App Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an RSConnect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
+  },
+  {
+    "objectID": "index.html#use-case-3---validating-r-packages",
+    "href": "index.html#use-case-3---validating-r-packages",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Use Case 3 - Validating R Packages",
+    "text": "Use Case 3 - Validating R Packages\n\n\n\n\nR packages are validated by an internal validation team that uses CI/CD pipelines to automatically\n\naccept new package submissions via a form\nrunning tests against the new package to ensure package integrity\nenforcing criteria to ensure that the package meets regulatory requirements\n\nAlso validated externally via an open source project called thevalidatoR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–>"
+  },
+  {
+    "objectID": "index.html#additional-materials",
+    "href": "index.html#additional-materials",
+    "title": "CI/CD in the {pharmaverse}",
+    "section": "Additional Materials",
+    "text": "Additional Materials\n\n\nFurther Reading\n\nGitHub Actions\nGitLab CI\n\nAdvanced Examples\n\nr-lib/actions\n{admiralci}\nDocker\n\nPresentation built with Quarto\nR/Pharma 2022 CI/CD Workshop\nThis Presentation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–>\n\n\n\n\n\n\n\n\n\n\n–>\n\n\n\n<CI-CD GitHub>"
+  }
+]
