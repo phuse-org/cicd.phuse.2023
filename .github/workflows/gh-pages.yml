@@ -42,6 +42,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./${{ matrix.QUARTO_DIR }}/_site
           destination_dir: ${{ matrix.QUARTO_DIR }}
+          keep_files: true
 
   index:
     name: Index page
@@ -58,3 +59,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontpage
           destination_dir: "."
+          keep_files: true
