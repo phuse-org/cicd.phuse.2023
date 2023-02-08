@@ -27,6 +27,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
+      - name: Install tinytex
+        run: quarto install tinytex
+        shell: bash
+
       - name: Render Quarto Project
         run: quarto render --output-dir _site
         shell: bash
