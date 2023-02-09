@@ -35,9 +35,11 @@ We will showcase
 # {admiral}
 
 {admiral} is an open-source R package that seeks to build a modularized toolbox to develop ADaM
-datasets.  The package was initially started by a collaboration between GSK and Roche and has since burgeoned to multiple companies and extension packages. 
+datasets.  The package was initially started by a collaboration between GSK and Roche and has since burgeoned to multiple companies and extension packages.  The author, Ben Straub, was a complete newcomer to the CI/CD processes when he stepped into the role of a developer for {admiral}.  His eyes were opened to the possibilities of using CI to maintain the integrity of the codebase in a large open source project.
 
-The author, Ben Straub, was a complete newcomer to the CI/CD processes when he stepped into the role of a developer for {admiral}.  His eyes were opened to the possibilities of using CI to maintain the integrity of the codebase in a large open source.
+The community of developers building admiral has a strong desire to help users from other software to build ADaMs in R.  This is accomplished by robust documentation for admiral's function as well as User Guides. However, documentation can only go so far in demonstrating the fitness of the product.  Robust code examples that can build entire ADaM datasets like ADAE or ADLB is incredibly helpful??  In the section, template thing, ...
+
+Something about mananging a large ecosystem...
 
 Below the discussion will look two CI processes employed in admiral:
 
@@ -120,19 +122,33 @@ final points such as recommendations predictions, or judgments.
 
 # REFERENCES
 
-References go at the end of your paper. This section is not required.
+* admiral: https://pharmaverse.github.io/admiral/index.html
+* pharmaverse:
+* nest:
+
+
 
 # ACKNOWLEDGMENTS
 
-Acknowledgments go after your references. This section is not required.
+* GSK and Roche
+* Huge shoutout to the developers of the pharmaverse building R packages.
 
 # RECOMMENDED READING
 
-Recommended reading lists go after your acknowledgments. This section is not required.
+- Further Reading
+  - GitHub Actions: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+  - GitLab CI: https://docs.gitlab.com/ee/ci/
+- Advanced Examples
+  - r-lib/actions: https://github.com/r-lib/actions
+  - `{admiralci}`: https://github.com/pharmaverse/admiralci
+  - Docker: https://www.docker.com/
+- Presentation built with Quarto: https://quarto.org/
+
+- R/Pharma 2022 CI/CD Workshop: https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/
+- This Presentation: https://pharmaverse.github.io/cicdworkshop.rinpharma2022/presentation/
 
 # CONTACT INFORMATION
 
-(In case a reader wants to get in touch with you, please put your contact information at the end of the paper.)
 Your comments and questions are valued and encouraged. Contact the author at:
 
 Author Name: Ben Straub
