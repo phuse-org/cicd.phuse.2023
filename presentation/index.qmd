@@ -108,6 +108,8 @@ CI/CD bridges the gaps between development and operation activities and teams by
 We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: [Intro to CI/CD for R Packages](https://youtu.be/OcNzurpCCpY)
 :::
 
+# Ensuring technical innovation
+
 # Two Case Studies
 
 ::: {.column width="25%"}
