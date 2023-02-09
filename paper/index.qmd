@@ -16,20 +16,28 @@ format:
 
 # ABSTRACT
 
-A brief abstract at the beginning summarises and highlights the major points of your paper. Check your margins!
-They should print so that both the left and right margins are ¾ inch.
+**A brief abstract at the beginning summarises and highlights the major points of your paper.
+Check your margins! They should print so that both the left and right margins are ¾ inch.**
+
+Continuous integration (CI) and continuous delivery (CD) are playing a pivotal role in ensuring that R packages in Pharma meet the highest standards. Focus is placed on ensuring that packages are fit for purpose for both internal systems as well as the various requirements for CRAN/BioConductor. In this talk, we discuss best practices that were adopted into making developer-friendly and efficient CI/CD pipelines and the impact that these pipelines have had in the open-source Pharma community and at Roche/Genetech. Two case studies of package and pipelines will be discussed - one on a beginner level and one on an advanced level. The first will be CI/CD workflows for the admiral R package, used for building ADaM datasets, and presented from the perspective of a newcomer to CI/CD. The second case will be regarding the NEST framework, which will have more advanced discussions presented by an experienced CI/CD developer.  
 
 # INTRODUCTION
 
-The introduction explains the purpose and scope of your paper and provides readers with any general information
-they need to understand your paper.
+**The introduction explains the purpose and scope of your paper and provides readers with any general information
+they need to understand your paper.**
 
-# Admiral
+Both large and software projects can greatly benefit from employing CI/CD into their processes.  A lone software developer maintaining a project can benefit from continually checking that their software runs under current dependent packages and operating systems.  A large open-source projects can benefit from continually checking that contributors code in Pull Requests/Merges meet standards set by the project.
 
-This is a main topic in the paper body. This is the paper body. This is the paper body. This is the paper body. This is
-the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is
-the paper body. This is the paper body. This is the paper body. This is the paper body.
-If you need to include source code:
+A large benefit of the strong open-source community for R packages is the wealth of knowledge on building out and up CI/CD.  The lone developer does not need to write CI code from scratch nor does a the 50+ open source community project.
+
+We will showcase
+
+# {admiral}
+
+{admiral} is an open-source R package that seeks to build a modularized toolbox to develop ADaM
+datasets.  The package was initially started by a collaboration between GSK and Roche and has since burgeoned to multiple companies and extension packages.
+
+
 
 ```
 data one;
@@ -53,7 +61,7 @@ if mix(var1, var2) > 0 then do;
 
 Continuation of body – after source code.
 
-# NEST 
+# {nest} 
 
 This is a main topic in the paper body. This is the paper body. This is the paper body. This is the paper body. This is
 the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is
