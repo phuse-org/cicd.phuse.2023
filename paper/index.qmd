@@ -47,25 +47,55 @@ Below the discussion will look two CI processes employed in admiral:
 1. Managing multiple CI processes across multiple packages/projects
 
 
+## ADaM Templates
+
+The admiral package is awash with documentation, which is awesome and at times overwhelming.  The team has put together a series of templates for common BDS-Findings, OCCDS, ADSL and other common ADaMs that showcase building up an ADaM with admiral functions.  This is a nice balance as you get to see the functions in action!  However, these templates are not checked when building the R package as they would violate CRAN policies around examples (citation).  Enter CI checks.  As we developer admiral functions we continously check that the template code is working properfly. 
+
 ```
-data one;
-set two;
-if mix(var1, var2) > 0 then do;
+---
+name: Check Templates
+
+on:
+  workflow_dispatch:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  templates:
+    name: Check Templates
+    uses: pharmaverse/admiralci/.github/workflows/check-templates.yml@main
+    if: github.event.review.state == 'approved'
+    with:
+      r-version: "4.0"
 ```
 
-Continuation of body – after source code.
+The above code...do da
 
-## SUBHEAD
+## Common CI framework
 
-This is subtopic for the above. This is the paper body. This is the paper body. This is the paper body. This is the
-paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the
-paper body.
-If you need to include source code:
+admiral has grown into multiple extension packages for specific disease areas.  The team has also created a CDISC specific data package as well as a developer tool package.  
+
 ```
-data one;
-set two;
-if mix(var1, var2) > 0 then do;
+---
+# Source: https://github.com/pharmaverse/admiralci
+# Common workflows designed for Admiral
+# but can be easily used by any other R package
+name: admiral CI/CD Workflows
+
+on:
+  # 'workflow_dispatch' gives you the ability
+  # to run this workflow on demand, anytime
+  workflow_dispatch:
+  # 'push' events are triggered when commits
+  # are pushed to one of these branches
+  push:
+    branches:
+      - main
+      - devel
+      ...
 ```
+
+
 
 Continuation of body – after source code.
 
