@@ -23,7 +23,6 @@ format:
       - heightrounded
     fontsize: 11pt
     fontfamily: helvet
-    sansfont: Arial
 ---
 
 # ABSTRACT
