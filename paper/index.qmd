@@ -1,17 +1,29 @@
 ---
 title: "CI/CD in the {pharmaverse}"
-subtitle: >
-  PHUSE- US Connect
-  March 7th, 2023
-  Ben Straub (GSK)
-  Dinakar Kulkarni (Roche)
+subtitle: |
+  \
+  Ben Straub, GSK, USA \
+  Dinakar Kulkarni, Roche, USA \
 format:
   pdf:
-    documentclass: scrartcl
+    # https://pandoc.org/MANUAL.html#variables-for-latex
+    documentclass: article
     papersize: letter
     toc: false
     number-sections: false
     colorlinks: true
+    classoption:
+      - oneside
+    lof: false
+    lot: false
+    geometry:
+      - top=30mm
+      - left=20mm
+      - margin=0.75in
+      - heightrounded
+    fontsize: 11pt
+    fontfamily: helvet
+    sansfont: Arial
 ---
 
 # ABSTRACT
@@ -47,7 +59,7 @@ The following scenario is common on {admiral}.  Users have identified an issue w
 
 As we developer admiral functions we continously check that the template code is working properfly. 
 
-```
+```{.yaml}
 ---
 name: Check Templates
 
@@ -71,7 +83,7 @@ The above code...do da
 
 admiral has grown into multiple extension packages for specific disease areas.  The team has also created a CDISC specific data package as well as a developer tool package.  
 
-```
+```{.yaml}
 ---
 # Source: https://github.com/pharmaverse/admiralci
 # Common workflows designed for Admiral
@@ -102,7 +114,7 @@ the paper body. This is the paper body. This is the paper body. This is the pape
 the paper body. This is the paper body.
 If you need to include source code:
 
-```
+```{.r}
 data one;
 set two;
 if mix(var1, var2) > 0 then do;
@@ -117,7 +129,7 @@ paper body. This is the paper body. This is the paper body. This is the paper bo
 This is the paper body.
 If you need to include source code:
 
-```
+```{.r}
 data one;
 set two;
 if mix(var1, var2) > 0 then do;
@@ -133,7 +145,7 @@ This is the paper body. This is the paper body. This is the paper body. This is 
 This is the paper body. This is the paper body. This is the paper body.
 If you need to include source code:
 
-```
+```{.r}
 data one;
 set two;
 if mix(var1, var2) > 0 then do;
@@ -148,10 +160,9 @@ final points such as recommendations predictions, or judgments.
 
 # REFERENCES
 
-* admiral: https://pharmaverse.github.io/admiral/index.html
-* pharmaverse:
-* nest:
-
+* [admiral](https://pharmaverse.github.io/admiral/index.html)
+* [pharmaverse](https://pharmaverse.org)
+* [nest](https://github.com/insightsengineering)
 
 
 # ACKNOWLEDGMENTS
@@ -162,16 +173,15 @@ final points such as recommendations predictions, or judgments.
 # RECOMMENDED READING
 
 - Further Reading
-  - GitHub Actions: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
-  - GitLab CI: https://docs.gitlab.com/ee/ci/
+  - [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+  - [GitLab CI](https://docs.gitlab.com/ee/ci/)
 - Advanced Examples
-  - r-lib/actions: https://github.com/r-lib/actions
-  - `{admiralci}`: https://github.com/pharmaverse/admiralci
-  - Docker: https://www.docker.com/
-- Presentation built with Quarto: https://quarto.org/
-
-- R/Pharma 2022 CI/CD Workshop: https://pharmaverse.github.io/cicdworkshop.rinpharma2022/workshop/
-- This Presentation: https://pharmaverse.github.io/cicdworkshop.rinpharma2022/presentation/
+  - [r-lib/actions](https://github.com/r-lib/actions)
+  - [`{admiralci}`](https://github.com/pharmaverse/admiralci)
+  - [Docker](https://www.docker.com/)
+- [Presentation built with Quarto](https://quarto.org/)
+- [This paper](https://phuse-org.github.io/cicd.phuse.2023/paper)
+- [Presentation related to this paper](https://phuse-org.github.io/cicd.phuse.2023/presentation)
 
 # CONTACT INFORMATION
 
