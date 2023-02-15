@@ -1,7 +1,7 @@
 ---
 title: "CI/CD in the {pharmaverse}"
 subtitle: |
-  \
+  Paper: OS04 \
   Ben Straub, GSK, USA \
   Dinakar Kulkarni, Roche, USA \
 format:
@@ -17,8 +17,9 @@ format:
     lof: false
     lot: false
     geometry:
-      - top=30mm
+      - top=0.75in
       - left=20mm
+      - right=20mm
       - margin=0.75in
       - heightrounded
     fontsize: 11pt
