@@ -149,51 +149,136 @@ the release.
 Maintaining the integrity of multiple dependent and extended packages across multiple repositories is a challenge.  Introducing different levels of skills with your developers compounds potential issues. Developing a common framework of CI/CD housed in the admiralci repository has allowed us to continually provide feedback to both new and veteran developers while also ensuring that our code base is maintained to a high-level of integrity.  At the same time, we have a common CI/CD framework housed in a central place has enabled us to quickly bring online additional pharmaverse packages.  
 
 
-# {nest} 
+# NEST
 
-This is a main topic in the paper body. This is the paper body. This is the paper body. This is the paper body. This is
-the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is
-the paper body. This is the paper body.
-If you need to include source code:
+The NEST framework is comprised of a suite of R packages that are used for clinical reporting purposes. `{teal}`, `{tern}`, and `{rtables}` are at the core, with several other supporting R packages that make up the framework.
 
-```{.r}
-data one;
-set two;
-if mix(var1, var2) > 0 then do;
-```
+In order to maintain the highest levels of quality, security, and compliance, a common set of CI/CD pipelines are applied across the board. There are some pipelines and workflows that cater to specific use cases in the development of NEST which are discussed below in brief.
 
-Continuation of body – after source code.
+## Shiny App Testing
 
-## SUBHEAD
+Shiny is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. As with any web application, it is important to thoroughly test Shiny apps to ensure that they function correctly and provide a good user experience. Automated testing using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the testing process and ensure that Shiny apps are thoroughly tested before they are deployed.
 
-This is subtopic for the above. This is the paper body. This is the paper body. This is the paper body. This is the
-paper body. This is the paper body. This is the paper body. This is the paper body.
-This is the paper body.
-If you need to include source code:
+Automated Shiny app testing using CI/CD typically involves the following steps:
 
-```{.r}
-data one;
-set two;
-if mix(var1, var2) > 0 then do;
-```
+Test Automation: Automated tests are created to test various aspects of the Shiny app, such as the user interface, data input and output, and interactions between different components of the app. Tests are typically created using tools such as `{rSelenium}`, `{shinytest}`, `{shinytest2}`, and `{testthat}`.
 
-Continuation of body – after source code.
+Version Control: The Shiny app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
+
+Continuous Integration: The Shiny app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+
+Continuous Deployment: The Shiny app code is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders before it is released to production.
+
+Monitoring: Once the Shiny app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+
+Automated testing using CI/CD can provide several benefits for Shiny app development. For example, it can help to:
+
+Catch errors and issues early in the development process, before they become a problem in production.
+Ensure that the Shiny app functions correctly across different browsers and devices.
+Provide a consistent and reliable testing process that can be easily replicated across different projects.
+Save time and resources by automating repetitive testing tasks.
+In summary, automated testing using CI/CD can help to ensure that Shiny apps are thoroughly tested and function correctly before they are deployed to production. By automating the testing process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+
+## Shiny App Deployments
+
+Shiny is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. Once a Shiny app has been developed, it needs to be deployed to a production environment so that users can access it. Automated deployment using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the deployment process and ensure that the Shiny app is deployed consistently and reliably.
+
+Automated Shiny app deployment using CI/CD typically involves the following steps:
+
+Version Control: The Shiny app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
+
+Continuous Integration: The Shiny app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+
+Continuous Deployment: Once the code has been integrated and tested, it is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders. If the app passes all tests, it is automatically deployed to production.
+
+Configuration Management: Automated tools are used to manage the configuration of the Shiny app and its dependencies in the production environment. This helps to ensure that the app runs consistently and reliably across different servers and environments.
+
+Monitoring: Once the Shiny app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+
+Automated deployment using CI/CD can provide several benefits for Shiny app development. For example, it can help to:
+
+Ensure that the Shiny app is deployed consistently and reliably, reducing the risk of errors or downtime.
+Save time and resources by automating the deployment process, freeing up developers to focus on other tasks.
+Enable developers to easily roll back to a previous version of the app if issues arise.
+Provide a consistent and reliable deployment process that can be easily replicated across different projects.
+In summary, automated deployment using CI/CD can help to ensure that Shiny apps are deployed consistently and reliably, reducing the risk of errors or downtime. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+
+# R Package Deployments
+
+R is a popular programming language used for data analysis and statistical computing. R packages are collections of code, data, and documentation that can be easily shared and reused by others. Once an R package has been developed, it needs to be deployed to a repository where others can access it. Automated deployment using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the deployment process and ensure that the R package is deployed consistently and reliably.
+
+Automated R package deployment using CI/CD typically involves the following steps:
+
+Version Control: The R package code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
+
+Continuous Integration: The R package code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system. Tests can be run using tools such as Testthat, which is a popular testing framework for R.
+
+Continuous Deployment: Once the code has been integrated and tested, it is automatically deployed to a package repository, such as CRAN or GitHub. This can be done using tools such as devtools or packrat, which automate the package building and deployment process.
+
+Configuration Management: Automated tools are used to manage the configuration of the R package and its dependencies in the production environment. This helps to ensure that the package runs consistently and reliably across different systems and environments.
+
+Monitoring: Once the R package is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+
+Automated deployment using CI/CD can provide several benefits for R package development. For example, it can help to:
+
+Ensure that the R package is deployed consistently and reliably, reducing the risk of errors or issues.
+Save time and resources by automating the deployment process, freeing up developers to focus on other tasks.
+Enable developers to easily roll back to a previous version of the package if issues arise.
+Provide a consistent and reliable deployment process that can be easily replicated across different projects.
+In summary, automated deployment using CI/CD can help to ensure that R packages are deployed consistently and reliably, reducing the risk of errors or issues. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+
+## Continuous Compliance And Security
 
 
-## SUBHEAD
 
-This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body.
-This is the paper body. This is the paper body. This is the paper body. This is the paper body. This is the paper body.
-This is the paper body. This is the paper body. This is the paper body.
-If you need to include source code:
 
-```{.r}
-data one;
-set two;
-if mix(var1, var2) > 0 then do;
-```
+## TLG Catalog Rendering And Generation
 
-Continuation of body – after source code.
+In clinical reporting, tables, listings, and graphs are often used to present the results of clinical trials and other medical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for healthcare professionals and researchers to understand and interpret the results of a study.
+
+To ensure that tables, listings, and graphs are rendered correctly in clinical reports, it is important to use a consistent and reliable process for generating these visualizations. Continuous Integration/Continuous Deployment (CI/CD) is an approach to software development that can be used to automate the process of generating these visualizations, making it faster and more reliable.
+
+The process of rendering tables, listings, and graphs in clinical reporting using CI/CD typically involves the following steps:
+
+1. Data Extraction: Data is extracted from various sources, such as electronic health records or clinical trial databases, and then transformed into a format that can be used to generate tables, listings, and graphs.
+
+1. Code Development: Code is developed to generate the tables, listings, and graphs from the extracted data. This code is typically written using programming languages such as R or Python.
+
+1. Version Control: The code is stored in a version control system such as Git, which allows multiple developers to work on the code simultaneously and tracks changes over time.
+
+1. Automated Testing: Automated tests are developed to ensure that the code generates the correct tables, listings, and graphs for a variety of input data. This helps to catch errors early in the development process, before they become a problem in the final clinical report.
+
+1. Continuous Integration: The code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+
+1. Continuous Deployment: The code is automatically deployed to a staging environment, where it can be further tested by clinical researchers and healthcare professionals before it is finalized for publication in a clinical report.
+
+By using CI/CD to automate the process of generating tables, listings, and graphs in clinical reporting, healthcare organizations and research institutions can reduce the risk of errors and ensure that these visualizations are consistent, accurate, and easy to interpret. This can ultimately improve the quality of clinical research studies and help healthcare professionals make more informed decisions about patient care.
+
+## Integration Testing
+
+Integration testing is a type of software testing that ensures that different components of a software system work together seamlessly. In the context of R packages, integration testing is particularly important because packages typically consist of multiple functions that need to work together coherently to produce accurate and reliable results.
+
+Integration testing for R packages typically involves running a suite of tests that exercise the package's functions in various combinations and scenarios. The tests may be designed to check the following aspects of the package:
+
+1. Functionality: Does each function in the package work as intended? Do the functions produce the correct output for a range of input values?
+
+1. Compatibility: Do the functions in the package work well together? Are there any conflicts or inconsistencies between the functions that need to be resolved?
+
+1. Performance: How well does the package perform under a range of conditions? Does it handle large data sets efficiently? Are there any bottlenecks or performance issues that need to be addressed?
+
+1. Usability: Is the package easy to use? Are the functions well-documented and easy to understand? Are there any usability issues that need to be addressed?
+
+To perform integration testing for an R package, you can use a testing framework such as `{testthat}`. This framework provides a set of tools for defining and running tests, including functions for checking expected outputs, comparing data frames, and evaluating error messages.
+
+To write integration tests for an R package, you should first identify the different scenarios in which the package will be used, and then create tests that exercise the functions in those scenarios. For example, you might create tests that:
+
+Use multiple functions in the package to solve a complex problem
+Test the package's ability to handle missing or invalid input data
+Check the performance of the package on large datasets
+Test the package's compatibility with other R packages that it is likely to be used with
+As you write your tests, it's important to consider the different types of input data that the functions in the package may be used with. You should create test cases that cover a range of input values, including edge cases and extreme values that could cause the functions to fail.
+
+Overall, integration testing is an important step in ensuring that an R package is reliable, accurate, and easy to use. By testing the package's functionality, compatibility, performance, and usability, you can ensure that it works seamlessly with other components of the R ecosystem and delivers accurate and reliable results to users.
 
 # CONCLUSION
 
