@@ -74,7 +74,7 @@
     "href": "index.html#use-case-2---shiny-app-testing-deployment",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "Use Case 2 - Shiny App Testing & Deployment",
-    "text": "Use Case 2 - Shiny App Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an RSConnect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
+    "text": "Use Case 2 - Shiny App Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an Posit Connect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
   },
   {
     "objectID": "index.html#use-case-3---validating-r-packages",
