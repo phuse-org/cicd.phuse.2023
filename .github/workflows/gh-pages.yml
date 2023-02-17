@@ -53,9 +53,35 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+
       - name: Publish index page
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontpage
           keep_files: true
+
+  pdf-presentation:
+    name: Presentation as PDF
+    needs: index
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Print presentation as PDF
+        run: |
+          mkdir -p /tmp/presentation
+          chrome --headless --disable-gpu \
+            --print-to-pdf=/tmp/index.pdf \
+            https://${GITHUB_REPOSITORY_OWNER}.github.io/${{ github.event.repository.name }}/presentation/index.html?print-pdf
+
+      - name: Publish PDF presentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/presentation
+          keep_files: true
+          destination_dir: presentation

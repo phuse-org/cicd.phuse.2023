@@ -1,10 +1,10 @@
 ---
-title: "Paper: OS04"
+title: |
+  \scriptsize Paper: OS04 \par
+  \Large How CI/CD Enhances the Development of R Packages in the Pharmaverse \par
 subtitle: |
-  How CI/CD Enhances the Development of R Packages in the Pharmaverse \
-  \
-  Ben Straub, GSK, USA \
-  Dinakar Kulkarni, Roche, USA \
+  \normalsize Ben Straub, GSK, USA \
+  Dinakar Kulkarni, Roche, USA \par
 format:
   pdf:
     # https://pandoc.org/MANUAL.html#variables-for-latex
@@ -35,7 +35,7 @@ Continuous integration (CI) and continuous delivery (CD) are playing a pivotal r
 
 Both small and large software projects can greatly benefit from employing CI/CD into their workflows.  A lone software developer maintaining a project over many years can benefit from continually checking that their software runs under current and new dependent packages and operating systems.  A large open-source projects can benefit from continually checking that contributors code in Pull Requests/Merges meet standards set by the project.  Both can leverage the growing CI/CD open-source pipelines being developed across the myriad and vibrant open-source projects.  
 
-Below we will discuss a few scenarios where CI/CD has greatly benefited the open-source R package {admiral} and {nest} framework.
+Below we will discuss a few scenarios where CI/CD has greatly benefited the open-source R package {admiral} and NEST framework.
 
 # {admiral}
 
@@ -151,57 +151,47 @@ Maintaining the integrity of multiple dependent and extended packages across mul
 
 # NEST
 
-The NEST framework is comprised of a suite of R packages that are used for clinical reporting purposes. `{teal}`, `{tern}`, and `{rtables}` are at the core, with several other supporting R packages that make up the framework.
+The NEST framework is comprised of a suite of R packages that are used for clinical reporting purposes. `{teal}`, `{tern}`, and `{rtables}` are at the core, with several other supporting R packages which provide all the tools necessary for generating static reports as well as interactive applications for regulatory and exploratory submissions respectively.
 
 In order to maintain the highest levels of quality, security, and compliance, a common set of CI/CD pipelines are applied across the board. There are some pipelines and workflows that cater to specific use cases in the development of NEST which are discussed below in brief.
 
-## Shiny App Testing
+## Web Application Testing
 
-Shiny is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. As with any web application, it is important to thoroughly test Shiny apps to ensure that they function correctly and provide a good user experience. Automated testing using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the testing process and ensure that Shiny apps are thoroughly tested before they are deployed.
+`{shiny}` is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. 
 
-Automated Shiny app testing using CI/CD typically involves the following steps:
+The `{teal}` framework is built on top of the `{shiny}` framework. As with any web application framework, it is important to thoroughly test the framwork as well as applications built using the framework to ensure they function correctly, provide a good user experience, and behave consistently and predictably.
 
-Test Automation: Automated tests are created to test various aspects of the Shiny app, such as the user interface, data input and output, and interactions between different components of the app. Tests are typically created using tools such as `{rSelenium}`, `{shinytest}`, `{shinytest2}`, and `{testthat}`.
+Automated tests are created to test various aspects of `{teal}` app, such as the user interface, data input and output, and interactions between different components of the app. Tests are created using unit test frameworks such as `{shinytest}`, `{shinytest2}`, and `{testthat}`, and orchestrated using GitHub Actions and other similar CI/CD products.
 
-Version Control: The Shiny app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
+Benefits of running tests for `{teal}` and its applications via CI include:
 
-Continuous Integration: The Shiny app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+1. Catching bugs, errors and other issues early in the development process, before they become a problem in production.
+1. Ensure that `{teal}` components work correctly across different browsers and operating systems.
+1. Save time and resources by automating repetitive testing tasks.
 
-Continuous Deployment: The Shiny app code is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders before it is released to production.
+## Web Application Deployments
 
-Monitoring: Once the Shiny app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+Once `{teal}` apps have been developed, they need to be deployed to production environments so that users can access and use them. Automated deployment using CI/CD tools can help to streamline the deployment process and ensure that the `{teal}` app is deployed consistently and reliably.
 
-Automated testing using CI/CD can provide several benefits for Shiny app development. For example, it can help to:
+Automated `{teal}` app deployment using CI/CD typically involves the following steps:
 
-Catch errors and issues early in the development process, before they become a problem in production.
-Ensure that the Shiny app functions correctly across different browsers and devices.
-Provide a consistent and reliable testing process that can be easily replicated across different projects.
-Save time and resources by automating repetitive testing tasks.
-In summary, automated testing using CI/CD can help to ensure that Shiny apps are thoroughly tested and function correctly before they are deployed to production. By automating the testing process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+Version Control: The `{teal}` app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
 
-## Shiny App Deployments
-
-Shiny is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. Once a Shiny app has been developed, it needs to be deployed to a production environment so that users can access it. Automated deployment using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the deployment process and ensure that the Shiny app is deployed consistently and reliably.
-
-Automated Shiny app deployment using CI/CD typically involves the following steps:
-
-Version Control: The Shiny app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
-
-Continuous Integration: The Shiny app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+Continuous Integration: The `{teal}` app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
 
 Continuous Deployment: Once the code has been integrated and tested, it is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders. If the app passes all tests, it is automatically deployed to production.
 
-Configuration Management: Automated tools are used to manage the configuration of the Shiny app and its dependencies in the production environment. This helps to ensure that the app runs consistently and reliably across different servers and environments.
+Configuration Management: Automated tools are used to manage the configuration of the `{teal}` app and its dependencies in the production environment. This helps to ensure that the app runs consistently and reliably across different servers and environments.
 
-Monitoring: Once the Shiny app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+Monitoring: Once the `{teal}` app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
 
-Automated deployment using CI/CD can provide several benefits for Shiny app development. For example, it can help to:
+Automated deployment using CI/CD can provide several benefits for `{teal}` app development. For example, it can help to:
 
-Ensure that the Shiny app is deployed consistently and reliably, reducing the risk of errors or downtime.
+Ensure that the `{teal}` app is deployed consistently and reliably, reducing the risk of errors or downtime.
 Save time and resources by automating the deployment process, freeing up developers to focus on other tasks.
 Enable developers to easily roll back to a previous version of the app if issues arise.
 Provide a consistent and reliable deployment process that can be easily replicated across different projects.
-In summary, automated deployment using CI/CD can help to ensure that Shiny apps are deployed consistently and reliably, reducing the risk of errors or downtime. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+In summary, automated deployment using CI/CD can help to ensure that `{teal}` apps are deployed consistently and reliably, reducing the risk of errors or downtime. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
 
 # R Package Deployments
 
@@ -249,7 +239,7 @@ Implement Access Controls: Access controls should be implemented to ensure that 
 
 Continuous compliance and security for R packages is important to ensure that packages are secure and meet regulatory requirements. By following best practices for security and implementing regular security scans, developers can identify and address vulnerabilities early in the development process. By using secure dependencies and implementing access controls, developers can help to ensure that R packages are secure throughout their development and deployment lifecycles.
 
-## TLG Catalog Rendering And Generation
+## Rendering And Publishing of Documentation
 
 In clinical reporting, tables, listings, and graphs are often used to present the results of clinical trials and other medical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for healthcare professionals and researchers to understand and interpret the results of a study.
 
@@ -301,6 +291,8 @@ Overall, integration testing is an important step in ensuring that an R package 
 
 We encourage readers new to CI/CD to also check out a workshop conducted by the authors called: An intro to CI/CD for R packages, which you can find linked in the Reference section below. 
 
+\newpage
+
 # REFERENCES
 
 * [admiral](https://pharmaverse.github.io/admiral/index.html)
@@ -332,18 +324,12 @@ We encourage readers new to CI/CD to also check out a workshop conducted by the 
 
 Your comments and questions are valued and encouraged. Contact the author at:
 
-Author Name: Ben Straub
+Author Name: **Ben Straub** \
+Company: **GSK** \
+Address: **1000 Black Rock Rd** \
+City / Postcode: **Collegeville, PA 19426** \
+Work Phone: **+1 (610) 917-3493** \
+Email: **[ben.x.straub@gsk.com](mailto:ben.x.straub@gsk.com)** \
+Web: **[www.gsk.com](https://www.gsk.com)** \
 
-Company: GSK
-
-Address: 1000 Black Rock Rd
-
-City / Postcode: Collegeville, PA 19426
-
-Work Phone: (610) 917-3493
-
-Email: ben.x.straub@gsk.com
-
-Web: www.gsk.com
-
-Brand and product names are trademarks of their respective companies.
+_Brand and product names are trademarks of their respective companies._
