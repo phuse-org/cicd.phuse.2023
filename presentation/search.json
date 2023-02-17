@@ -63,18 +63,18 @@
     "text": "About NEST\n\n\n\n\nA collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization\ntern for creating TLGs\nteal for creating exploratory web applications for analyzing clinical trial data\nLinks\n\nrtables\nNEST GitHub Organization"
   },
   {
-    "objectID": "index.html#use-case-1---testing-packages-as-a-cohort",
-    "href": "index.html#use-case-1---testing-packages-as-a-cohort",
+    "objectID": "index.html#use-case-1---integration-testing",
+    "href": "index.html#use-case-1---integration-testing",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
-    "section": "Use Case 1 - Testing Packages as a Cohort",
-    "text": "Use Case 1 - Testing Packages as a Cohort\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
+    "section": "Use Case 1 - Integration Testing",
+    "text": "Use Case 1 - Integration Testing\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
   },
   {
-    "objectID": "index.html#use-case-2---shiny-app-testing-deployment",
-    "href": "index.html#use-case-2---shiny-app-testing-deployment",
+    "objectID": "index.html#use-case-2---web-application-testing-deployment",
+    "href": "index.html#use-case-2---web-application-testing-deployment",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
-    "section": "Use Case 2 - Shiny App Testing & Deployment",
-    "text": "Use Case 2 - Shiny App Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an Posit Connect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
+    "section": "Use Case 2 - Web Application Testing & Deployment",
+    "text": "Use Case 2 - Web Application Testing & Deployment\n\n\n\n\nAnalysts create Shiny web apps via the teal framework for analyzing data\nApps are tested via a CI pipeline that uses the shinytest2 R package\nApps deployed to an Posit Connect Server instance via a CD pipeline\n\nWith the help of the rsconnect and connectapi R packages"
   },
   {
     "objectID": "index.html#use-case-3---validating-r-packages",
