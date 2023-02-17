@@ -33,9 +33,7 @@ Continuous integration (CI) and continuous delivery (CD) are playing a pivotal r
 
 # INTRODUCTION
 
-Both small and large software projects can greatly benefit from employing CI/CD into their workflows.  A lone software developer maintaining a project over many years can benefit from continually checking that their software runs under current and new dependent packages and operating systems.  A large open-source projects can benefit from continually checking that contributors code in Pull Requests/Merges meet standards set by the project.  Both can leverage the growing CI/CD open-source pipelines being developed across the myriad and vibrant open-source projects.  
-
-Below we will discuss a few scenarios where CI/CD has greatly benefited the open-source R package {admiral} and NEST framework.
+Both small and large software projects can greatly benefit from employing CI/CD into their workflows.  A lone software developer maintaining a project over many years can set up CI/CD workflows that continually check that their software runs under current and new dependent packages and operating systems.  It is even possible to tailor these workflows to send an email if one of the workflows from an updated dependent package! Large open-source projects maintained by many developers can benefit from continually checking that developers code in Pull Requests/Merges meet standards set by the project.  Letting the machines be the arbitrator for such things as code style, spell check and grammar can allow reviewers to give more focus to the actual content of the proposed changes.  In the next sections, we will focus in on scenarios where CI/CD has greatly benefited the open-source R package {admiral} and NEST framework.  We will look at specific use-cases on why the CI/CD workflows were implemented, beifely touch on how they were implemented and the impact on the particular project.  
 
 # {admiral}
 
@@ -43,8 +41,8 @@ Below we will discuss a few scenarios where CI/CD has greatly benefited the open
 
 Below we will look at two examples of CI/CD workflows employed in {admiral}:
 
-1. Continuously checking template code that build standard ADaMs
-1. Managing multiple CI/CD workflows across multiple packages repositories
+1. **ADaM Template Codes** - Here we will look at a specifc CI workflow for continuously checking template code that build standard ADaMs
+1. **Common CI/CD framework** - Here will look at how {admiral} manages multiple CI/CD workflows across multiple packages repositories
 
 ## ADaM Template Codes
 
