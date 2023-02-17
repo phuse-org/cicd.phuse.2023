@@ -58,7 +58,7 @@ Unfortunately, these templates are not checked when building the R package as th
 
 ### Scenario: Update to an {admiral} function
 
-The following scenario is common on {admiral}'s GitHub Repository.  A user has identified an issue with a function in {admiral} that does a derivation for a BDS-Finding dataset. A developer on {admiral} updates the function in a feature branch as well as updates the BDS-Findings template. The developer then initiates a Pull Request of their feature branch into the main code branch of {admiral}.  Before the Pull Request of the feature branch is allowed to be merged into main, a series of CI workflows are ran and must all pass.  One of these CI process is the **Check Templates Workflow**. The workflow in its simplest form, has a new instance of R installed on a GitHub server with appropriate operating system and dependent packages installed.  All the template code, for each ADaM, is then unpacked from the package and run on that GitHub server.  If each template runs free of errors on the server, then the Check Templates Workflow is shown to have passed. 
+The following scenario is common on {admiral}'s GitHub Repository.  A user has identified an issue with a function in {admiral} that does a derivation for a BDS-Finding dataset. A developer on {admiral} updates the function in a feature branch as well as updates the BDS-Findings template. The developer then initiates a Pull Request of their feature branch into the main code branch of {admiral}.  Before the Pull Request of the feature branch is allowed to be merged into main, a series of automated CI workflows are ran and must all pass as well as a manual review by another developer.  One of these CI process is the **Check Templates Workflow**. The workflow in its simplest form, has a new instance of R installed on a GitHub server with appropriate operating system and dependent packages installed.  All the template code, for each ADaM regardless if the change impacts the template, is then unpacked from the package and run on that GitHub server.  If each template runs free of errors on the server, then the Check Templates Workflow is shown to have passed. 
 
 We have provided the first 10 lines of the `yaml` file that GitHub uses to run this workflow on the {admiral} GitHub repository. The yaml file is the syntax of choice to define each workflow on the CI/CD platform on GitHub, which is called GitHub Actions.
 
@@ -83,7 +83,7 @@ jobs:
 
 A few parts to note in the file:
 
-* `uses:` -  The core workflow instructions are housed on the `admiralci` GitHub repository. Essentially, the workflow in {admiral} pulls from the repository {admiralci} to run.  This is a common practice across GitHub. More will be discussed on this `admiralci` repository later in the **Common CI/CD framework** framework section and how to leverage it in our family of repositories.  
+* `uses:` -  The core workflow instructions are housed on the `admiralci` GitHub repository. Essentially, the workflow in {admiral} pulls from the repository admiralci to run.  This is a common practice across GitHub. More will be discussed on this `admiralci` repository later in the **Common CI/CD framework** framework section and how to leverage it in our family of repositories.  
 * `if: github.event.review.state == 'approved'` - This workflow is only run after a reviewer of the code **Approves** the Pull Request.  As these runs of the templates can be resources intensive it was decided to only run after a Pull Request is approved.
 * `r-version:` The Version of R can be customized as needed in the package repository.
 
@@ -91,9 +91,9 @@ In summary, every time there is a need to add or update code to {admiral} a Pull
 
 ## Common CI/CD framework
 
-{admiral} has grown into multiple extension packages for specific disease areas as well as two dependency packages for testing and developer tools.  Multiple companies with varying expterise of developers are actively involved on a daily basis with a shared goal of helping users to build ADaMs in R.  To maintain integrity within the family of admiral a common framework of CI/CD workflows have been developed and housed in the GitHub repository admiralci.  This CI/CD framework is not optional and is required to be used at a minimum.  Additional CI/CD checks can be added if needed to the repository.
+{admiral} has grown into multiple extension packages for specific disease areas as well as two dependency packages for testing and developer tools.  Multiple companies with varying expterise of developers are actively involved on a daily basis with a shared goal of helping users to build ADaMs in R.  To maintain integrity within the family of admiral a common framework of CI/CD workflows have been developed and housed in the GitHub repository `admiralci`.  Please note the absence of curly brakets {} to denote the R package as `admiralci` is just a GitHub repository and not a R pacakge.  This CI/CD framework is not optional and is required to be used at a minimum.  Additional CI/CD checks can be added if needed to the repository.
 
-In each of the repositories, there is a `.github/workflows` folder and in it you will find a file called `common.yml`.  This file deploys the same CI/CD workflows across all repositories regardless of the package name or purpose.  The workflows are around code style, linting, spell check, link validation, creating a validation report, R-CMD checks, checking documentation is current and publishing a {pkgdown} website.
+In each of the repositories, there is a `.github/workflows` folder and in it you will find a file called `common.yml`.  This file exists in all of the family of admiral packages and deploys the same CI/CD workflows across all repositories regardless of the package name or purpose.  The workflows are around code style, linting, spell check, link validation, creating a validation report, R-CMD checks, checking documentation is current and publishing a {pkgdown} website.
 
 A partial glimpse is provided below that showcases four CI workflows: code style, spelling, validation and R-CMD checks.  Please note, the R-CMD check are the common checks employed by CRAN to test your package.  Failure of any of the CRAN tests mean rejection of your package.  You can run these locally on your machine or in our case run them as CI checks!
 
@@ -130,21 +130,31 @@ A few parts to note in this partial file glimpse of `common.yml`:
 
 * `uses:` - Just like in the above **Check Templates** section this `common.yml` file
 references the workflows housed on `admiralci`.  Readers are encouraged to go the
-admiralci repository and explore the yaml syntax for these checks.  
+`admiralci` repository and explore the yaml syntax for these checks.  
 
 * `if: github.event_name == 'pull_request'` - A slight deviation from **Check
-Templates**.  This CI workflow is triggered when the Pull Request is started, which
-differs from when the Pull Request is Approved.  This is helpful for developers as they
-will get feedback almost immediately if their code is meeting the admiral standards.
+Templates**.  This CI workflow is triggered when the Pull Request is Initiated, 
+which differs from when the Pull Request is Approved.  This is helpful for 
+developers as they will get feedback almost immediately if their code is meeting the admiral standards.
 
-* `if: github.event_name == 'release'` - When a Release is initiated on a GitHub
-Repository this will trigger an event where a custom validation report is created for
-the release. 
+* `if: github.event_name == 'release'` - The Validation CI workflow is only
+triggered when a Release is triggered, where a custom validation report is created 
+for the release. Please note how this is different from the other two GitHub events: `pull_request` and `approved`.
 
-* `r-version: "4.0"` - The code style and spelling CI workflows both make use of R version 4.0, i.e. the GitHub Server that runs these checks only installs R version 4.0.  
-* Missing R version for Check Workflow.  The check workflow does not have an `r-version` listed.  This workflow installs the three latest version of R. At the time of this paper, that was 4.0, 4.1 and 4.2. A snapshot of the dependent packages closes to the release of those version of R is also installed.  The package is then run on these three instances of R and if it installs properly and passes all CRAN checks, then the CI workflow is passed.
+* `r-version: "4.0"` - The code style and spelling CI workflows both make use of R
+version 4.0, i.e. the GitHub Server that runs these checks only installs R version
+4.0.  
 
-Maintaining the integrity of multiple dependent and extended packages across multiple repositories is a challenge.  Introducing different levels of skills with your developers compounds potential issues. Developing a common framework of CI/CD housed in the admiralci repository has allowed us to continually provide feedback to both new and veteran developers while also ensuring that our code base is maintained to a high-level of integrity.  At the same time, we have a common CI/CD framework housed in a central place has enabled us to quickly bring online additional pharmaverse packages.  
+* Please note the missing R version for Check Workflow.  The Check Workflow does not have an `r-version` listed.  This workflow installs the three latest version of R. At the time of this paper, that was 4.0, 4.1 and 4.2. A snapshot of the dependent packages closes to the release of those version of R is also installed.  The package is then run on these three instances of R and if it installs properly and passes all CRAN checks, then the CI workflow is passed.  We have provided a partial snapshot of the file, with modified repos to be fit on the page, that runs this workflow.  
+
+```{.yaml}
+ config:
+  - {os: ubuntu-20.04, r: '4.0', repos: 'cran/snapshot/2021-03-31/'}
+  - {os: ubuntu-20.04, r: '4.1', repos: 'cran/snapshot/2022-03-10/'}
+  - {os: ubuntu-20.04, r: 'release', repos:'/cran/__linux__/focal/latest'}
+```
+
+Maintaining the integrity of multiple dependent and extended packages across multiple repositories is a challenge.  Introducing different levels of skills with your developers compounds potential issues. Developing a common framework of CI/CD housed in the `admiralci` repository has allowed us to continually provide feedback to both new and veteran developers while also ensuring that our code base is maintained to a high-level of integrity.  At the same time, we have a common CI/CD framework housed in a central place has enabled us to quickly bring online additional pharmaverse packages.  
 
 
 # NEST
