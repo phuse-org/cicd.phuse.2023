@@ -164,6 +164,33 @@ In order to maintain the highest levels of quality, security, and compliance, a 
 
 ![The Insights Engineering GitHub Organization, home to the NEST framework](images/insights-engineering.png){#fig-insights-engineering}
 
+In addition to several of the workflows that `{admiral}` uses, there are additional use cases for using CI/CD for NEST, some of which are discussed below.
+
+
+## Integration Testing
+
+Integration testing is a type of software testing that ensures that different components of a software system work together seamlessly. In the context of R packages, integration testing is particularly important in testing whether a suite of inter-dependent and inter-related packages work together coherently to produce accurate and reliable results.
+
+For NEST, the following factors are tested as part of the integration test suite:
+
+1. _Functionality_: Do all packages work well together in a cohort? Do the functions produce the correct output for a range of input values?
+
+1. _Compatibility_: Are there any conflicts or inconsistencies between the functions that need to be resolved?
+
+1. _Performance_: How well do packages perform under a range of conditions? Do they handle large data sets efficiently? Are there any bottlenecks or performance issues that need to be addressed?
+
+1. _Usability_: Are the packages easy to use? Are the functions well-documented and easy to understand? Are there any usability issues that need to be addressed?
+
+Integration tests are orchestrated by a CI pipeline that:
+
+1. Builds all packages from source.
+1. Installs the builds in a library.
+1. Executes `R CMD check` on packages.
+
+Results from each of the above steps are reported in a report that package maintainers can review and make the necessary updates (bugfixes, performance improvements etc) to their packages.
+
+![Integration test report](images/integration-test.jpeg){#fig-integration-test}
+
 ## Web Application Testing
 
 `{shiny}` is a popular web application framework for R that allows developers to create interactive data visualizations and user interfaces. 
@@ -200,14 +227,6 @@ Benefits of automatically deploying `{teal}` applications via CD include:
 1. Enable operators to easily roll back to a previous version of the app if issues arise.
 1. Provide a consistent and reliable deployment process that can be easily replicated across different projects.
 
-## R Package Deployments
-
-After the NEST packages have been automatically tested with CI, they are deployed into staging and non-production environments where they are used for development and user-acceptance testing purposes.
-
-Furthermore, when the NEST packages are ready for a production release, they are automatically built and deployed into R package repository for general consumption.
-
-![NEST R package repository](images/autodeployed-packages.png){#fig-package-repo}
-
 ## Continuous Compliance And Security
 
 Continuous compliance and security for R packages involves ensuring that R packages meet compliance and security requirements throughout their development and deployment lifecycles. This can include ensuring that R packages meet regulatory requirements, follow best practices for security, and are up-to-date with the latest security patches and updates.
@@ -243,32 +262,15 @@ To ensure that TLGs are rendered correctly in clinical reports, it is important 
 Auto-generated and auto-published documentation
 :::
 
-
 CI is used for building the documentation and also for testing structural integrity of the documention (i.e. are URLs and hyperlinks correct, can the documentation be rendered, etc). CD is used to publish the documentation onto a web server.
 
-## Integration Testing
+## R Package Deployments
 
-Integration testing is a type of software testing that ensures that different components of a software system work together seamlessly. In the context of R packages, integration testing is particularly important in testing whether a suite of inter-dependent and inter-related packages work together coherently to produce accurate and reliable results.
+After the NEST packages have been automatically tested with CI, they are deployed into staging and non-production environments where they are used for development and user-acceptance testing purposes.
 
-For NEST, the following factors are tested as part of the integration test suite:
+Furthermore, when the NEST packages are ready for a production release, they are automatically built and deployed into R package repository for general consumption.
 
-1. _Functionality_: Do all packages work well together in a cohort? Do the functions produce the correct output for a range of input values?
-
-1. _Compatibility_: Are there any conflicts or inconsistencies between the functions that need to be resolved?
-
-1. _Performance_: How well do packages perform under a range of conditions? Do they handle large data sets efficiently? Are there any bottlenecks or performance issues that need to be addressed?
-
-1. _Usability_: Are the packages easy to use? Are the functions well-documented and easy to understand? Are there any usability issues that need to be addressed?
-
-Integration tests are orchestrated by a CI pipeline that:
-
-1. Builds all packages from source.
-1. Installs the builds in a library.
-1. Executes `R CMD check` on packages.
-
-Results from each of the above steps are reported in a report that package maintainers can review and make the necessary updates (bugfixes, performance improvements etc) to their packages.
-
-![Integration test report](images/integration-test.jpeg){#fig-integration-test}
+![NEST R package repository](images/autodeployed-packages.png){#fig-package-repo}
 
 # CONCLUSION
 

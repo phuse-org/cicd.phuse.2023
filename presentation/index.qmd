@@ -244,7 +244,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 :::
 ::::
 
-## Use Case 1 - Testing Packages as a Cohort
+## Use Case 1 - Integration Testing
 
 <br/>
 
@@ -266,7 +266,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 :::
 
 
-## Use Case 2 - Shiny App Testing & Deployment
+## Use Case 2 - Web Application Testing & Deployment
 
 <br/>
 
