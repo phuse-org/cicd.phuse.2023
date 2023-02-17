@@ -156,12 +156,13 @@ version 4.0, i.e. the GitHub Server that runs these checks only installs R versi
 
 Maintaining the integrity of multiple dependent and extended packages across multiple repositories is a challenge.  Introducing different levels of skills with your developers compounds potential issues. Developing a common framework of CI/CD housed in the `admiralci` repository has allowed us to continually provide feedback to both new and veteran developers while also ensuring that our code base is maintained to a high-level of integrity.  At the same time, we have a common CI/CD framework housed in a central place has enabled us to quickly bring online additional pharmaverse packages.  
 
-
 # NEST
 
 The NEST framework is comprised of a suite of R packages that are used for clinical reporting purposes. `{teal}`, `{tern}`, and `{rtables}` are at the core, with several other supporting R packages which provide all the tools necessary for generating static reports as well as interactive applications for regulatory and exploratory submissions respectively.
 
 In order to maintain the highest levels of quality, security, and compliance, a common set of CI/CD pipelines are applied across the board. There are some pipelines and workflows that cater to specific use cases in the development of NEST which are discussed below in brief.
+
+![The Insights Engineering GitHub Organization, home to the NEST framework](images/insights-engineering.png){#fig-insights-engineering}
 
 ## Web Application Testing
 
@@ -181,49 +182,31 @@ Benefits of running tests for `{teal}` and its applications via CI include:
 
 Once `{teal}` apps have been developed, they need to be deployed to production environments so that users can access and use them. Automated deployment using CI/CD tools can help to streamline the deployment process and ensure that the `{teal}` app is deployed consistently and reliably.
 
-Automated `{teal}` app deployment using CI/CD typically involves the following steps:
+Once the code has been integrated and tested, it is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders. If the app passes all tests, it is automatically deployed to a production environment.
 
-Version Control: The `{teal}` app code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
+::: {#fig-deployed-apps layout-ncol=2}
 
-Continuous Integration: The `{teal}` app code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
+![Efficacy `{teal}` sample application](images/efficacy-teal.png){#fig-efficacy-teal}
 
-Continuous Deployment: Once the code has been integrated and tested, it is automatically deployed to a staging environment, where it can be further tested by developers and stakeholders. If the app passes all tests, it is automatically deployed to production.
+![RNA-Seq `{teal}` sample application](images/rna-seq-teal.png){#fig-rnaseq-teal}
 
-Configuration Management: Automated tools are used to manage the configuration of the `{teal}` app and its dependencies in the production environment. This helps to ensure that the app runs consistently and reliably across different servers and environments.
+Automatically deployed sample `{teal}` applications
+:::
 
-Monitoring: Once the `{teal}` app is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
+Benefits of automatically deploying `{teal}` applications via CD include:
 
-Automated deployment using CI/CD can provide several benefits for `{teal}` app development. For example, it can help to:
+1. Ensure that `{teal}` applications are deployed consistently and reliably, thereby reducing the risk of errors or downtime.
+1, Save time and resources by automating the deployment process, freeing up developers and operators alike to focus on other tasks.
+1. Enable operators to easily roll back to a previous version of the app if issues arise.
+1. Provide a consistent and reliable deployment process that can be easily replicated across different projects.
 
-Ensure that the `{teal}` app is deployed consistently and reliably, reducing the risk of errors or downtime.
-Save time and resources by automating the deployment process, freeing up developers to focus on other tasks.
-Enable developers to easily roll back to a previous version of the app if issues arise.
-Provide a consistent and reliable deployment process that can be easily replicated across different projects.
-In summary, automated deployment using CI/CD can help to ensure that `{teal}` apps are deployed consistently and reliably, reducing the risk of errors or downtime. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+## R Package Deployments
 
-# R Package Deployments
+After the NEST packages have been automatically tested with CI, they are deployed into staging and non-production environments where they are used for development and user-acceptance testing purposes.
 
-R is a popular programming language used for data analysis and statistical computing. R packages are collections of code, data, and documentation that can be easily shared and reused by others. Once an R package has been developed, it needs to be deployed to a repository where others can access it. Automated deployment using Continuous Integration/Continuous Deployment (CI/CD) can help to streamline the deployment process and ensure that the R package is deployed consistently and reliably.
+Furthermore, when the NEST packages are ready for a production release, they are automatically built and deployed into R package repository for general consumption.
 
-Automated R package deployment using CI/CD typically involves the following steps:
-
-Version Control: The R package code is stored in a version control system, such as Git. This allows multiple developers to work on the code simultaneously and tracks changes over time.
-
-Continuous Integration: The R package code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system. Tests can be run using tools such as Testthat, which is a popular testing framework for R.
-
-Continuous Deployment: Once the code has been integrated and tested, it is automatically deployed to a package repository, such as CRAN or GitHub. This can be done using tools such as devtools or packrat, which automate the package building and deployment process.
-
-Configuration Management: Automated tools are used to manage the configuration of the R package and its dependencies in the production environment. This helps to ensure that the package runs consistently and reliably across different systems and environments.
-
-Monitoring: Once the R package is in production, it is important to monitor it for issues or bugs that may arise. Automated monitoring tools can be used to detect issues and alert developers if there are any problems.
-
-Automated deployment using CI/CD can provide several benefits for R package development. For example, it can help to:
-
-Ensure that the R package is deployed consistently and reliably, reducing the risk of errors or issues.
-Save time and resources by automating the deployment process, freeing up developers to focus on other tasks.
-Enable developers to easily roll back to a previous version of the package if issues arise.
-Provide a consistent and reliable deployment process that can be easily replicated across different projects.
-In summary, automated deployment using CI/CD can help to ensure that R packages are deployed consistently and reliably, reducing the risk of errors or issues. By automating the deployment process, developers can save time and resources and provide a better user experience for stakeholders and end users.
+![NEST R package repository](images/autodeployed-packages.png){#fig-package-repo}
 
 ## Continuous Compliance And Security
 
@@ -231,69 +214,61 @@ Continuous compliance and security for R packages involves ensuring that R packa
 
 There are several steps that can be taken to ensure continuous compliance and security for R packages:
 
-Establish Compliance and Security Requirements: The first step in ensuring continuous compliance and security for R packages is to establish the specific compliance and security requirements that the package must meet. This may include regulatory requirements, industry standards, or internal company policies.
+1. _Establish Compliance and Security Requirements_: The first step in ensuring continuous compliance and security for R packages is to establish the specific compliance and security requirements that the package must meet. This may include regulatory requirements, industry standards, or internal company policies.
 
-Implement Security Best Practices: The R package code should be developed using best practices for security, such as following the principle of least privilege, using secure coding practices, and implementing secure authentication and authorization mechanisms.
+1. _Implement Security Best Practices_: The R package code should be developed using best practices for security, such as following the principle of least privilege, using secure coding practices, and implementing secure authentication and authorization mechanisms.
 
-Conduct Regular Security Scans: Regular security scans should be conducted to identify vulnerabilities in the R package code and dependencies. This can be done using tools such as R package security scanners, static code analysis tools, and vulnerability scanners.
+1. _Conduct Regular Security Scans_: Regular security scans should be conducted to identify vulnerabilities in the R package code and dependencies. This can be done using tools such as R package security scanners, static code analysis tools, and vulnerability scanners.
 
-Use Secure Dependencies: R packages should only use dependencies that are known to be secure and have been updated with the latest security patches and updates.
+1. _Use Secure Dependencies_: R packages should only use dependencies that are known to be secure and have been updated with the latest security patches and updates.
 
-Perform Continuous Integration/Continuous Deployment (CI/CD): Continuous Integration/Continuous Deployment (CI/CD) can help to ensure that R packages are continuously tested and deployed using a consistent and reliable process. This can help to identify and address compliance and security issues early in the development process.
+1. _Conduct Regular Audits_: Regular audits should be conducted to ensure that R packages meet compliance and security requirements. This can include internal audits as well as third-party audits.
 
-Conduct Regular Audits: Regular audits should be conducted to ensure that R packages meet compliance and security requirements. This can include internal audits as well as third-party audits.
+1. _Implement Access Controls_: Access controls should be implemented to ensure that only authorized users have access to the R package code and related data.
 
-Implement Access Controls: Access controls should be implemented to ensure that only authorized users have access to the R package code and related data.
-
-Continuous compliance and security for R packages is important to ensure that packages are secure and meet regulatory requirements. By following best practices for security and implementing regular security scans, developers can identify and address vulnerabilities early in the development process. By using secure dependencies and implementing access controls, developers can help to ensure that R packages are secure throughout their development and deployment lifecycles.
+![Dependency audit log](images/vulnerability-scan.png){#fig-dependency-audit-log}
 
 ## Rendering And Publishing of Documentation
 
-In clinical reporting, tables, listings, and graphs are often used to present the results of clinical trials and other medical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for healthcare professionals and researchers to understand and interpret the results of a study.
+In clinical reporting, tables, listings, and graphs (TLGs) are often used to present the results of clinical trials and other pharmaceutical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for scientists, researchers, and statisticians interpret the results of a study.
 
-To ensure that tables, listings, and graphs are rendered correctly in clinical reports, it is important to use a consistent and reliable process for generating these visualizations. Continuous Integration/Continuous Deployment (CI/CD) is an approach to software development that can be used to automate the process of generating these visualizations, making it faster and more reliable.
+To ensure that TLGs are rendered correctly in clinical reports, it is important to use a consistent and reliable process for generating these visualizations. All NEST products leverage a variety of tools for documentation generation and publishing. For a catalog of TLGs as well as for creation of user guides, [Quarto](https://quarto.org/) is used to render the documentation, while [`{pkgdown}`](https://pkgdown.r-lib.org/) is used to generate R package documentation.
 
-The process of rendering tables, listings, and graphs in clinical reporting using CI/CD typically involves the following steps:
+::: {#fig-deployed-docs layout-ncol=2}
 
-1. Data Extraction: Data is extracted from various sources, such as electronic health records or clinical trial databases, and then transformed into a format that can be used to generate tables, listings, and graphs.
+![TLG Catalog](images/tlg-catalog.png){#fig-tlg-catalog}
 
-1. Code Development: Code is developed to generate the tables, listings, and graphs from the extracted data. This code is typically written using programming languages such as R or Python.
+![`{teal}` package documentation](images/teal-pkgdown.png){#fig-teal-pkgdown}
 
-1. Version Control: The code is stored in a version control system such as Git, which allows multiple developers to work on the code simultaneously and tracks changes over time.
+Auto-generated and auto-published documentation
+:::
 
-1. Automated Testing: Automated tests are developed to ensure that the code generates the correct tables, listings, and graphs for a variety of input data. This helps to catch errors early in the development process, before they become a problem in the final clinical report.
 
-1. Continuous Integration: The code is automatically integrated with other code changes and tested to ensure that it works correctly with the rest of the software system.
-
-1. Continuous Deployment: The code is automatically deployed to a staging environment, where it can be further tested by clinical researchers and healthcare professionals before it is finalized for publication in a clinical report.
-
-By using CI/CD to automate the process of generating tables, listings, and graphs in clinical reporting, healthcare organizations and research institutions can reduce the risk of errors and ensure that these visualizations are consistent, accurate, and easy to interpret. This can ultimately improve the quality of clinical research studies and help healthcare professionals make more informed decisions about patient care.
+CI is used for building the documentation and also for testing structural integrity of the documention (i.e. are URLs and hyperlinks correct, can the documentation be rendered, etc). CD is used to publish the documentation onto a web server.
 
 ## Integration Testing
 
-Integration testing is a type of software testing that ensures that different components of a software system work together seamlessly. In the context of R packages, integration testing is particularly important because packages typically consist of multiple functions that need to work together coherently to produce accurate and reliable results.
+Integration testing is a type of software testing that ensures that different components of a software system work together seamlessly. In the context of R packages, integration testing is particularly important in testing whether a suite of inter-dependent and inter-related packages work together coherently to produce accurate and reliable results.
 
-Integration testing for R packages typically involves running a suite of tests that exercise the package's functions in various combinations and scenarios. The tests may be designed to check the following aspects of the package:
+For NEST, the following factors are tested as part of the integration test suite:
 
-1. Functionality: Does each function in the package work as intended? Do the functions produce the correct output for a range of input values?
+1. _Functionality_: Do all packages work well together in a cohort? Do the functions produce the correct output for a range of input values?
 
-1. Compatibility: Do the functions in the package work well together? Are there any conflicts or inconsistencies between the functions that need to be resolved?
+1. _Compatibility_: Are there any conflicts or inconsistencies between the functions that need to be resolved?
 
-1. Performance: How well does the package perform under a range of conditions? Does it handle large data sets efficiently? Are there any bottlenecks or performance issues that need to be addressed?
+1. _Performance_: How well do packages perform under a range of conditions? Do they handle large data sets efficiently? Are there any bottlenecks or performance issues that need to be addressed?
 
-1. Usability: Is the package easy to use? Are the functions well-documented and easy to understand? Are there any usability issues that need to be addressed?
+1. _Usability_: Are the packages easy to use? Are the functions well-documented and easy to understand? Are there any usability issues that need to be addressed?
 
-To perform integration testing for an R package, you can use a testing framework such as `{testthat}`. This framework provides a set of tools for defining and running tests, including functions for checking expected outputs, comparing data frames, and evaluating error messages.
+Integration tests are orchestrated by a CI pipeline that:
 
-To write integration tests for an R package, you should first identify the different scenarios in which the package will be used, and then create tests that exercise the functions in those scenarios. For example, you might create tests that:
+1. Builds all packages from source.
+1. Installs the builds in a library.
+1. Executes `R CMD check` on packages.
 
-Use multiple functions in the package to solve a complex problem
-Test the package's ability to handle missing or invalid input data
-Check the performance of the package on large datasets
-Test the package's compatibility with other R packages that it is likely to be used with
-As you write your tests, it's important to consider the different types of input data that the functions in the package may be used with. You should create test cases that cover a range of input values, including edge cases and extreme values that could cause the functions to fail.
+Results from each of the above steps are reported in a report that package maintainers can review and make the necessary updates (bugfixes, performance improvements etc) to their packages.
 
-Overall, integration testing is an important step in ensuring that an R package is reliable, accurate, and easy to use. By testing the package's functionality, compatibility, performance, and usability, you can ensure that it works seamlessly with other components of the R ecosystem and delivers accurate and reliable results to users.
+![Integration test report](images/integration-test.jpeg){#fig-integration-test}
 
 # CONCLUSION
 
