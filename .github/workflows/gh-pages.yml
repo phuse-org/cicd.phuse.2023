@@ -75,7 +75,7 @@ jobs:
         run: |
           mkdir -p /tmp/presentation
           chrome --headless --disable-gpu \
-            --print-to-pdf=/tmp/index.pdf \
+            --print-to-pdf=/tmp/presentation/index.pdf \
             https://${GITHUB_REPOSITORY_OWNER}.github.io/${{ github.event.repository.name }}/presentation/index.html?print-pdf
 
       - name: Publish PDF presentation
