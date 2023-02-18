@@ -1,7 +1,7 @@
 ---
 title: How CI/CD Enhances the Development of R Packages in the Pharmaverse
 subtitle: |
-  PHUSE- US Connect
+  PhUSE 2023, US Connect
 
   March 7th, 2023
 
@@ -110,15 +110,14 @@ CI/CD bridges the gaps between development and operation activities and teams by
 We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: [Intro to CI/CD for R Packages](https://youtu.be/OcNzurpCCpY)
 :::
 
-# Ensuring technical innovation
 
 # Two Case Studies
 
-::: {.column width="25%"}
+::: {.column width="40%"}
 ![](https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/admiral)
 :::
 
-::: {.column width="25%"}
+::: {.column width="40%"}
 ![](https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/nest.png)
 :::
 
