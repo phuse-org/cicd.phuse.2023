@@ -113,12 +113,12 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 # Two Case Studies
 
-::: {.column width="40%"}
-![](https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/admiral)
+::: {.column width="45%"}
+<img src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/PNG/admiral.png" alt="admiral" width="300"/>
 :::
 
-::: {.column width="40%"}
-![](https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/nest.png)
+::: {.column width="45%"}
+<img src="https://github.com/insightsengineering/hex-stickers/raw/main/PNG/nest.png" alt="nest" width="370"/>
 :::
 
 # Case Study - admiral
@@ -207,7 +207,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 :::: {.columns}
 
 ::: {.column width="40%"}
-- Using `admiralci`, we have a common set of CI/CD workflows
+- Using `{admiralci}`, we have a common set of CI/CD workflows
 - Developers moving between packages are familiar with these workflows
 - Common documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors
 :::
@@ -229,13 +229,14 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="75%"}
+::: {.column width="75%" .incremental}
 - A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br/>
-- `tern` for creating TLGs<br/>
+- `tern` and `rtables `for creating TLGs<br/>
 - `teal` for creating exploratory web applications for analyzing clinical trial data<br/>
 - Links
-  - [rtables](https://github.com/Roche/rtables)
-  - [NEST GitHub Organization](https://github.com/insightsengineering/)
+  - [rtables](https://github.com/insightsengineering/rtables)
+  - [tern](https://github.com/insightsengineering/tern)
+  - [teal](https://github.com/insightsengineering/teal)
 :::
 
 ::: {.column width="25%"}
@@ -247,13 +248,13 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 <br/>
 
-
+::: {.incremental}
 - An in-development package must be tested against the latest versions of upstream dependencies
 - Monorepo emulation via a git branch naming strategy is achieved by using
   - the [staged.dependencies R package](https://github.com/openpharma/staged.dependencies)
   - and the [staged.dependencies GitHub Action](https://github.com/insightsengineering/staged-dependencies-action)
 - Testing as a cohort can be done at any stage (eg. development, pre-release, release)
-
+:::
 
 
 ::: {.centre}
@@ -271,7 +272,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="45%"}
+::: {.column width="45%" .incremental}
 
 - Analysts create Shiny web apps via the `teal` framework for analyzing data
 - Apps are tested via a CI pipeline that uses the [`shinytest2`](https://cran.r-project.org/web/packages/shinytest2/index.html) R package
@@ -297,7 +298,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="60%"}
+::: {.column width="60%" .incremental}
 
 - R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
   - accept new package submissions via a form
