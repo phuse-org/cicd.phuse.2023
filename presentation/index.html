@@ -401,11 +401,11 @@
 </section>
 <section id="two-case-studies" class="title-slide slide level1 center">
 <h1>Two Case Studies</h1>
-<div class="column" style="width:40%;">
-<p><img data-src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/admiral.png"></p>
+<div class="column" style="width:45%;">
+<p><img src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/PNG/admiral.png" alt="admiral" width="300"></p>
 </div>
-<div class="column" style="width:40%;">
-<p><img data-src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/nest.png"></p>
+<div class="column" style="width:45%;">
+<p><img src="https://github.com/insightsengineering/hex-stickers/raw/main/PNG/nest.png" alt="nest" width="370"></p>
 </div>
 </section>
 
@@ -490,7 +490,7 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li>Using <code>admiralci</code>, we have a common set of CI/CD workflows</li>
+<li>Using <code>{admiralci}</code>, we have a common set of CI/CD workflows</li>
 <li>Developers moving between packages are familiar with these workflows</li>
 <li>Common documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors</li>
 </ul>
@@ -512,13 +512,14 @@
 <div class="columns">
 <div class="column" style="width:75%;">
 <ul>
-<li>A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br></li>
-<li><code>tern</code> for creating TLGs<br></li>
-<li><code>teal</code> for creating exploratory web applications for analyzing clinical trial data<br></li>
-<li>Links
+<li class="fragment">A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br></li>
+<li class="fragment"><code>tern</code> and <code>rtables</code>for creating TLGs<br></li>
+<li class="fragment"><code>teal</code> for creating exploratory web applications for analyzing clinical trial data<br></li>
+<li class="fragment">Links
 <ul>
-<li><a href="https://github.com/Roche/rtables">rtables</a></li>
-<li><a href="https://github.com/insightsengineering/">NEST GitHub Organization</a></li>
+<li class="fragment"><a href="https://github.com/insightsengineering/rtables">rtables</a></li>
+<li class="fragment"><a href="https://github.com/insightsengineering/tern">tern</a></li>
+<li class="fragment"><a href="https://github.com/insightsengineering/teal">teal</a></li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:25%;">
@@ -529,15 +530,17 @@
 <section id="use-case-1---integration-testing" class="slide level2">
 <h2>Use Case 1 - Integration Testing</h2>
 <p><br></p>
+<div>
 <ul>
-<li>An in-development package must be tested against the latest versions of upstream dependencies</li>
-<li>Monorepo emulation via a git branch naming strategy is achieved by using
+<li class="fragment">An in-development package must be tested against the latest versions of upstream dependencies</li>
+<li class="fragment">Monorepo emulation via a git branch naming strategy is achieved by using
 <ul>
-<li>the <a href="https://github.com/openpharma/staged.dependencies">staged.dependencies R package</a></li>
-<li>and the <a href="https://github.com/insightsengineering/staged-dependencies-action">staged.dependencies GitHub Action</a></li>
+<li class="fragment">the <a href="https://github.com/openpharma/staged.dependencies">staged.dependencies R package</a></li>
+<li class="fragment">and the <a href="https://github.com/insightsengineering/staged-dependencies-action">staged.dependencies GitHub Action</a></li>
 </ul></li>
-<li>Testing as a cohort can be done at any stage (eg. development, pre-release, release)</li>
+<li class="fragment">Testing as a cohort can be done at any stage (eg. development, pre-release, release)</li>
 </ul>
+</div>
 <div class="centre">
 <p><img src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/staged.dependencies.png" width="175" height="175"></p>
 </div>
@@ -548,11 +551,11 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
-<li>Analysts create Shiny web apps via the <code>teal</code> framework for analyzing data</li>
-<li>Apps are tested via a CI pipeline that uses the <a href="https://cran.r-project.org/web/packages/shinytest2/index.html"><code>shinytest2</code></a> R package</li>
-<li>Apps deployed to an Posit Connect Server instance via a CD pipeline
+<li class="fragment">Analysts create Shiny web apps via the <code>teal</code> framework for analyzing data</li>
+<li class="fragment">Apps are tested via a CI pipeline that uses the <a href="https://cran.r-project.org/web/packages/shinytest2/index.html"><code>shinytest2</code></a> R package</li>
+<li class="fragment">Apps deployed to an Posit Connect Server instance via a CD pipeline
 <ul>
-<li>With the help of the <a href="https://cran.r-project.org/web/packages/rsconnect/index.html"><code>rsconnect</code></a> and <a href="https://cran.r-project.org/web/packages/connectapi/index.html"><code>connectapi</code></a> R packages</li>
+<li class="fragment">With the help of the <a href="https://cran.r-project.org/web/packages/rsconnect/index.html"><code>rsconnect</code></a> and <a href="https://cran.r-project.org/web/packages/connectapi/index.html"><code>connectapi</code></a> R packages</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:5%;">
@@ -568,13 +571,13 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
+<li class="fragment">R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
 <ul>
-<li>accept new package submissions via a form</li>
-<li>running tests against the new package to ensure package integrity</li>
-<li>enforcing criteria to ensure that the package meets regulatory requirements</li>
+<li class="fragment">accept new package submissions via a form</li>
+<li class="fragment">running tests against the new package to ensure package integrity</li>
+<li class="fragment">enforcing criteria to ensure that the package meets regulatory requirements</li>
 </ul></li>
-<li>Also validated externally via an open source project called <a href="https://github.com/insightsengineering/thevalidatoR">thevalidatoR</a></li>
+<li class="fragment">Also validated externally via an open source project called <a href="https://github.com/insightsengineering/thevalidatoR">thevalidatoR</a></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/validation-report.png"></p>

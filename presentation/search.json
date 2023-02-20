@@ -53,21 +53,21 @@
     "href": "index.html#solution-2---common-cicd-workflows-for-admiral-upstream-and-downstream-dependencies",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies",
-    "text": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies\n\n\n\nUsing admiralci, we have a common set of CI/CD workflows\nDevelopers moving between packages are familiar with these workflows\nCommon documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors"
+    "text": "Solution 2 - Common CI/CD workflows for admiral upstream and downstream dependencies\n\n\n\nUsing {admiralci}, we have a common set of CI/CD workflows\nDevelopers moving between packages are familiar with these workflows\nCommon documentation between packages for CI/CD workflows - easy to maintain and provide to new contributors"
   },
   {
     "objectID": "index.html#about-nest",
     "href": "index.html#about-nest",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "About NEST",
-    "text": "About NEST\n\n\n\n\nA collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization\ntern for creating TLGs\nteal for creating exploratory web applications for analyzing clinical trial data\nLinks\n\nrtables\nNEST GitHub Organization"
+    "text": "About NEST\n\n\n\n\nA collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization\ntern and rtablesfor creating TLGs\nteal for creating exploratory web applications for analyzing clinical trial data\nLinks\n\nrtables\ntern\nteal"
   },
   {
     "objectID": "index.html#use-case-1---integration-testing",
     "href": "index.html#use-case-1---integration-testing",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "Use Case 1 - Integration Testing",
-    "text": "Use Case 1 - Integration Testing\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
+    "text": "Use Case 1 - Integration Testing\n\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
   },
   {
     "objectID": "index.html#use-case-2---web-application-testing-deployment",
