@@ -215,13 +215,13 @@ Automatically deployed sample `{teal}` applications
 Benefits of automatically deploying `{teal}` applications via CD include:
 
 1. Ensure that `{teal}` applications are deployed consistently and reliably, thereby reducing the risk of errors or downtime.
-1, Save time and resources by automating the deployment process, freeing up developers and operators alike to focus on other tasks.
+1. Save time and resources by automating the deployment process, freeing up developers and operators alike to focus on other tasks.
 1. Enable operators to easily roll back to a previous version of the app if issues arise.
 1. Provide a consistent and reliable deployment process that can be easily replicated across different projects.
 
 ## Continuous Compliance And Security
 
-Continuous compliance and security for R packages involves ensuring that R packages meet compliance and security requirements throughout their development and deployment lifecycles. This can include ensuring that R packages meet regulatory requirements, follow best practices for security, and are up-to-date with the latest security patches and updates.
+Continuous compliance and security for R packages involves ensuring that R packages meet compliance and security requirements throughout their development and deployment life cycles. This can include ensuring that R packages meet regulatory requirements, follow best practices for security, and are up-to-date with the latest security patches and updates.
 
 There are several steps that can be taken to ensure continuous compliance and security for R packages:
 
@@ -241,7 +241,7 @@ There are several steps that can be taken to ensure continuous compliance and se
 
 ## Rendering And Publishing of Documentation
 
-In clinical reporting, tables, listings, and graphs (TLGs) are often used to present the results of clinical trials and other pharmaceutical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for scientists, researchers, and statisticians interpret the results of a study.
+In clinical reporting, tables, listings, and graphs (TLGs) are often used to present the results of clinical trials and other pharmaceutical research studies. These types of data visualizations can help to convey complex information in a clear and concise way, making it easier for scientists, researchers, and statisticians to interpret the results of a study.
 
 To ensure that TLGs are rendered correctly in clinical reports, it is important to use a consistent and reliable process for generating these visualizations. All NEST products leverage a variety of tools for documentation generation and publishing. For a catalog of TLGs as well as for creation of user guides, [Quarto](https://quarto.org/) is used to render the documentation, while [`{pkgdown}`](https://pkgdown.r-lib.org/) is used to generate R package documentation.
 
@@ -260,13 +260,13 @@ CI is used for building the documentation and also for testing structural integr
 
 After the NEST packages have been automatically tested with CI, they are deployed into staging and non-production environments where they are used for development and user-acceptance testing purposes.
 
-Furthermore, when the NEST packages are ready for a production release, they are automatically built and deployed into R package repository for general consumption.
+Furthermore, when the NEST packages are ready for a production release, they are automatically built and deployed into a R package repository for general consumption.
 
 ![NEST R package repository](images/autodeployed-packages.png){#fig-package-repo}
 
 # CONCLUSION
 
-CI/CD can be employed on both, small and large projects. In the clinical reporting, context, these processes are essential in assuring that software packages and tools are well-tested, compliant, and producing intended results all while increasing developer experience and producitivity.
+CI/CD can be employed on both, small and large projects. In the clinical reporting context, these processes are essential in assuring that software packages and tools are well-tested, compliant, and producing intended results all while increasing developer experience and productivity.
 
 We encourage readers new to CI/CD to also check out a workshop conducted by the authors called: [An intro to CI/CD for R packages](https://youtu.be/OcNzurpCCpY), which you can find linked in the Reference section below.
 
