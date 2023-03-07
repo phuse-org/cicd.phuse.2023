@@ -41,36 +41,22 @@ render_file <- function(filepath, language = "yaml") {
 ## What is CI/CD? 
 
 
-::: {.fragment}
 * Continuous Integration (CI): Frequent merging of several small changes into a main branch
-:::
-
-::: {.fragment}
 * Continuous Delivery (CD): Repeatable deployment process when deciding to deploy
-:::
 
-::: {.fragment}
-CI/CD bridges the gaps between development and operation activities and teams by **enforcing automation** in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables
-:::
+CI/CD bridges the gaps between development and operation activities and teams by **enforcing automation** in building, testing and deployment of `{pharmaverse}` R packages.
 
 ::: {.columns}
+
 ::: {.column width="50%"}
-::: {.centre}
-::: {.fragment}
 ![](images/cicd.jpg)
 :::
-:::
-:::
 
 ::: {.column width="50%"}
-::: {.centre}
-::: {.fragment}
 ![](images/pharmaverse.png)
 :::
-:::
-:::
-:::
 
+:::
 
 ::: footer
 [Wikipedia: CI/CD](https://en.wikipedia.org/wiki/CI/CD#cite_note-2) [{pharmaverse}](https://github.com/pharmaverse)
@@ -83,9 +69,7 @@ CI/CD bridges the gaps between development and operation activities and teams by
 </div>
 
 
-::: {.fragment}
 ...Yes!  Yes, it does!!
-:::
 
 ::: footer
 [XKCD](https://xkcd.com/1319/)
@@ -93,7 +77,6 @@ CI/CD bridges the gaps between development and operation activities and teams by
 
 ## How does CI/CD help R packages?
 
-::: {.incremental}
 - Catch issues (bugs) early on 
 - User base on multiple OSes and multiple R versions
 - Faster turnaround on Code Review
@@ -102,11 +85,10 @@ CI/CD bridges the gaps between development and operation activities and teams by
 - Measure test coverage for new code 
 - Keep docs up-to-date
 - And we can just keep going!
-:::
 
 <!-- TODO add standard package logo or something -->
 
-::: {.column width="100%" .fragment}
+::: {.column width="100%"}
 We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: [Intro to CI/CD for R Packages](https://youtu.be/OcNzurpCCpY)
 :::
 
@@ -148,7 +130,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="40%" .incremental}
+::: {.column width="40%"}
 - Create a reference files to build common ADaM datasets that shows users how to implement our functions
 - Way less text than a Vignette - Code is ready to go and build a dataset
 - Where we store this code is not checked by R-CMD
@@ -168,7 +150,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="50%" .incremental}
+::: {.column width="50%"}
 - Dedicated CI/CD workflow that executes the Template code
 - Once a Code Review is completed the `Check Template` Workflow is executed
 - If any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.
@@ -188,7 +170,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="40%" .incremental}
+::: {.column width="40%"}
 - As you can imagine there can be a lot of different types of ADaMs!
 - Extension packages focus on specific disease areas like oncology
 - The `admiral` family has a package for developers, template R package repo and dummy data
@@ -229,7 +211,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="75%" .incremental}
+::: {.column width="75%"}
 - A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br/>
 - `tern` and `rtables `for creating TLGs<br/>
 - `teal` for creating exploratory web applications for analyzing clinical trial data<br/>
@@ -248,13 +230,11 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 <br/>
 
-::: {.incremental}
 - An in-development package must be tested against the latest versions of upstream dependencies
 - Monorepo emulation via a git branch naming strategy is achieved by using
   - the [staged.dependencies R package](https://github.com/openpharma/staged.dependencies)
   - and the [staged.dependencies GitHub Action](https://github.com/insightsengineering/staged-dependencies-action)
 - Testing as a cohort can be done at any stage (eg. development, pre-release, release)
-:::
 
 
 ::: {.centre}
@@ -272,7 +252,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="45%" .incremental}
+::: {.column width="45%"}
 
 - Analysts create Shiny web apps via the `teal` framework for analyzing data
 - Apps are tested via a CI pipeline that uses the [`shinytest2`](https://cran.r-project.org/web/packages/shinytest2/index.html) R package
@@ -298,7 +278,7 @@ We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop
 
 :::: {.columns}
 
-::: {.column width="60%" .incremental}
+::: {.column width="60%"}
 
 - R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
   - accept new package submissions via a form
