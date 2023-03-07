@@ -4,21 +4,21 @@
     "href": "index.html#what-is-cicd",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "What is CI/CD?",
-    "text": "What is CI/CD?\n\n\nContinuous Integration (CI): Frequent merging of several small changes into a main branch\n\n\n\n\nContinuous Delivery (CD): Repeatable deployment process when deciding to deploy\n\n\n\nCI/CD bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWikipedia: CI/CD {pharmaverse}"
+    "text": "What is CI/CD?\n\nContinuous Integration (CI): Frequent merging of several small changes into a main branch\nContinuous Delivery (CD): Repeatable deployment process when deciding to deploy\n\nCI/CD bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of {pharmaverse} R packages.\n\n\n\n\n\n\n\n\nWikipedia: CI/CD {pharmaverse}"
   },
   {
     "objectID": "index.html#does-it-help",
     "href": "index.html#does-it-help",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "Does it help?",
-    "text": "Does it help?\n\n\n\n\n…Yes! Yes, it does!!\n\n\nXKCD"
+    "text": "Does it help?\n\n\n\n…Yes! Yes, it does!!\n\nXKCD"
   },
   {
     "objectID": "index.html#how-does-cicd-help-r-packages",
     "href": "index.html#how-does-cicd-help-r-packages",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "How does CI/CD help R packages?",
-    "text": "How does CI/CD help R packages?\n\n\nCatch issues (bugs) early on\nUser base on multiple OSes and multiple R versions\nFaster turnaround on Code Review\nMultiple Contributors on your R Package\nEnforce style conventions and preferences\nMeasure test coverage for new code\nKeep docs up-to-date\nAnd we can just keep going!\n\n\n\n\nWe covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: Intro to CI/CD for R Packages"
+    "text": "How does CI/CD help R packages?\n\nCatch issues (bugs) early on\nUser base on multiple OSes and multiple R versions\nFaster turnaround on Code Review\nMultiple Contributors on your R Package\nEnforce style conventions and preferences\nMeasure test coverage for new code\nKeep docs up-to-date\nAnd we can just keep going!\n\n\n\nWe covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: Intro to CI/CD for R Packages"
   },
   {
     "objectID": "index.html#about-admiral",
@@ -67,7 +67,7 @@
     "href": "index.html#use-case-1---integration-testing",
     "title": "How CI/CD Enhances the Development of R Packages in the Pharmaverse",
     "section": "Use Case 1 - Integration Testing",
-    "text": "Use Case 1 - Integration Testing\n\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
+    "text": "Use Case 1 - Integration Testing\n\n\nAn in-development package must be tested against the latest versions of upstream dependencies\nMonorepo emulation via a git branch naming strategy is achieved by using\n\nthe staged.dependencies R package\nand the staged.dependencies GitHub Action\n\nTesting as a cohort can be done at any stage (eg. development, pre-release, release)"
   },
   {
     "objectID": "index.html#use-case-2---web-application-testing-deployment",

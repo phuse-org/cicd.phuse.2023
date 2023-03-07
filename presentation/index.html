@@ -336,32 +336,16 @@
 </section>
 <section id="what-is-cicd" class="slide level2">
 <h2>What is CI/CD?</h2>
-<div class="fragment">
 <ul>
 <li>Continuous Integration (CI): Frequent merging of several small changes into a main branch</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
 <li>Continuous Delivery (CD): Repeatable deployment process when deciding to deploy</li>
 </ul>
-</div>
-<div class="fragment">
-<p>CI/CD bridges the gaps between development and operation activities and teams by <strong>enforcing automation</strong> in building, testing and deployment of applications. CI/CD services compile the incremental code changes made by developers, then link and package them into software deliverables</p>
-</div>
+<p>CI/CD bridges the gaps between development and operation activities and teams by <strong>enforcing automation</strong> in building, testing and deployment of <code>{pharmaverse}</code> R packages.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="centre">
-<div class="fragment">
 <p><img data-src="images/cicd.jpg"></p>
-</div>
-</div>
 </div><div class="column" style="width:50%;">
-<div class="centre">
-<div class="fragment">
 <p><img data-src="images/pharmaverse.png"></p>
-</div>
-</div>
 </div>
 </div>
 <div class="footer">
@@ -373,29 +357,25 @@
 <div class="centre">
 <p><img data-src="images/automation.png"></p>
 </div>
-<div class="fragment">
 <p>…Yes! Yes, it does!!</p>
-</div>
 <div class="footer">
 <p><a href="https://xkcd.com/1319/">XKCD</a></p>
 </div>
 </section>
 <section id="how-does-cicd-help-r-packages" class="slide level2">
 <h2>How does CI/CD help R packages?</h2>
-<div>
 <ul>
-<li class="fragment">Catch issues (bugs) early on</li>
-<li class="fragment">User base on multiple OSes and multiple R versions</li>
-<li class="fragment">Faster turnaround on Code Review</li>
-<li class="fragment">Multiple Contributors on your R Package</li>
-<li class="fragment">Enforce style conventions and preferences</li>
-<li class="fragment">Measure test coverage for new code</li>
-<li class="fragment">Keep docs up-to-date</li>
-<li class="fragment">And we can just keep going!</li>
+<li>Catch issues (bugs) early on</li>
+<li>User base on multiple OSes and multiple R versions</li>
+<li>Faster turnaround on Code Review</li>
+<li>Multiple Contributors on your R Package</li>
+<li>Enforce style conventions and preferences</li>
+<li>Measure test coverage for new code</li>
+<li>Keep docs up-to-date</li>
+<li>And we can just keep going!</li>
 </ul>
-</div>
 <!-- TODO add standard package logo or something -->
-<div class="column fragment" style="width:100%;">
+<div class="column" style="width:100%;">
 <p>We covered a lot of custom CI/CD actions for R packages in the R/Pharma Workshop in 2022: <a href="https://youtu.be/OcNzurpCCpY">Intro to CI/CD for R Packages</a></p>
 </div>
 </section>
@@ -440,11 +420,11 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li class="fragment">Create a reference files to build common ADaM datasets that shows users how to implement our functions</li>
-<li class="fragment">Way less text than a Vignette - Code is ready to go and build a dataset</li>
-<li class="fragment">Where we store this code is not checked by R-CMD</li>
-<li class="fragment">How to ensure code stays up to date with deprecated functions or unforeseen bugs get in from functions working together?</li>
-<li class="fragment">CI/CD for the win!</li>
+<li>Create a reference files to build common ADaM datasets that shows users how to implement our functions</li>
+<li>Way less text than a Vignette - Code is ready to go and build a dataset</li>
+<li>Where we store this code is not checked by R-CMD</li>
+<li>How to ensure code stays up to date with deprecated functions or unforeseen bugs get in from functions working together?</li>
+<li>CI/CD for the win!</li>
 </ul>
 </div><div class="column" style="width:10%;">
 
@@ -458,9 +438,9 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li class="fragment">Dedicated CI/CD workflow that executes the Template code</li>
-<li class="fragment">Once a Code Review is completed the <code>Check Template</code> Workflow is executed</li>
-<li class="fragment">If any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.</li>
+<li>Dedicated CI/CD workflow that executes the Template code</li>
+<li>Once a Code Review is completed the <code>Check Template</code> Workflow is executed</li>
+<li>If any errors or warnings are detected the CI/CD check fails and the contributor must fix the error or warning.</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="file-name">
@@ -475,10 +455,10 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li class="fragment">As you can imagine there can be a lot of different types of ADaMs!</li>
-<li class="fragment">Extension packages focus on specific disease areas like oncology</li>
-<li class="fragment">The <code>admiral</code> family has a package for developers, template R package repo and dummy data</li>
-<li class="fragment">Eek!! How to keep this all in line!</li>
+<li>As you can imagine there can be a lot of different types of ADaMs!</li>
+<li>Extension packages focus on specific disease areas like oncology</li>
+<li>The <code>admiral</code> family has a package for developers, template R package repo and dummy data</li>
+<li>Eek!! How to keep this all in line!</li>
 </ul>
 </div><div class="column" style="width:60%;">
 <p><img data-src="images/admiralext.png"></p>
@@ -512,14 +492,14 @@
 <div class="columns">
 <div class="column" style="width:75%;">
 <ul>
-<li class="fragment">A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br></li>
-<li class="fragment"><code>tern</code> and <code>rtables</code>for creating TLGs<br></li>
-<li class="fragment"><code>teal</code> for creating exploratory web applications for analyzing clinical trial data<br></li>
-<li class="fragment">Links
+<li>A collection of R packages for creating TLGs/TFLs and exploratory clinical trials data visualization<br></li>
+<li><code>tern</code> and <code>rtables</code>for creating TLGs<br></li>
+<li><code>teal</code> for creating exploratory web applications for analyzing clinical trial data<br></li>
+<li>Links
 <ul>
-<li class="fragment"><a href="https://github.com/insightsengineering/rtables">rtables</a></li>
-<li class="fragment"><a href="https://github.com/insightsengineering/tern">tern</a></li>
-<li class="fragment"><a href="https://github.com/insightsengineering/teal">teal</a></li>
+<li><a href="https://github.com/insightsengineering/rtables">rtables</a></li>
+<li><a href="https://github.com/insightsengineering/tern">tern</a></li>
+<li><a href="https://github.com/insightsengineering/teal">teal</a></li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:25%;">
@@ -530,17 +510,15 @@
 <section id="use-case-1---integration-testing" class="slide level2">
 <h2>Use Case 1 - Integration Testing</h2>
 <p><br></p>
-<div>
 <ul>
-<li class="fragment">An in-development package must be tested against the latest versions of upstream dependencies</li>
-<li class="fragment">Monorepo emulation via a git branch naming strategy is achieved by using
+<li>An in-development package must be tested against the latest versions of upstream dependencies</li>
+<li>Monorepo emulation via a git branch naming strategy is achieved by using
 <ul>
-<li class="fragment">the <a href="https://github.com/openpharma/staged.dependencies">staged.dependencies R package</a></li>
-<li class="fragment">and the <a href="https://github.com/insightsengineering/staged-dependencies-action">staged.dependencies GitHub Action</a></li>
+<li>the <a href="https://github.com/openpharma/staged.dependencies">staged.dependencies R package</a></li>
+<li>and the <a href="https://github.com/insightsengineering/staged-dependencies-action">staged.dependencies GitHub Action</a></li>
 </ul></li>
-<li class="fragment">Testing as a cohort can be done at any stage (eg. development, pre-release, release)</li>
+<li>Testing as a cohort can be done at any stage (eg. development, pre-release, release)</li>
 </ul>
-</div>
 <div class="centre">
 <p><img src="https://raw.githubusercontent.com/insightsengineering/hex-stickers/main/thumbs/staged.dependencies.png" width="175" height="175"></p>
 </div>
@@ -551,11 +529,11 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
-<li class="fragment">Analysts create Shiny web apps via the <code>teal</code> framework for analyzing data</li>
-<li class="fragment">Apps are tested via a CI pipeline that uses the <a href="https://cran.r-project.org/web/packages/shinytest2/index.html"><code>shinytest2</code></a> R package</li>
-<li class="fragment">Apps deployed to an Posit Connect Server instance via a CD pipeline
+<li>Analysts create Shiny web apps via the <code>teal</code> framework for analyzing data</li>
+<li>Apps are tested via a CI pipeline that uses the <a href="https://cran.r-project.org/web/packages/shinytest2/index.html"><code>shinytest2</code></a> R package</li>
+<li>Apps deployed to an Posit Connect Server instance via a CD pipeline
 <ul>
-<li class="fragment">With the help of the <a href="https://cran.r-project.org/web/packages/rsconnect/index.html"><code>rsconnect</code></a> and <a href="https://cran.r-project.org/web/packages/connectapi/index.html"><code>connectapi</code></a> R packages</li>
+<li>With the help of the <a href="https://cran.r-project.org/web/packages/rsconnect/index.html"><code>rsconnect</code></a> and <a href="https://cran.r-project.org/web/packages/connectapi/index.html"><code>connectapi</code></a> R packages</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:5%;">
@@ -571,13 +549,13 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
+<li>R packages are validated by an internal validation team that uses CI/CD pipelines to automatically
 <ul>
-<li class="fragment">accept new package submissions via a form</li>
-<li class="fragment">running tests against the new package to ensure package integrity</li>
-<li class="fragment">enforcing criteria to ensure that the package meets regulatory requirements</li>
+<li>accept new package submissions via a form</li>
+<li>running tests against the new package to ensure package integrity</li>
+<li>enforcing criteria to ensure that the package meets regulatory requirements</li>
 </ul></li>
-<li class="fragment">Also validated externally via an open source project called <a href="https://github.com/insightsengineering/thevalidatoR">thevalidatoR</a></li>
+<li>Also validated externally via an open source project called <a href="https://github.com/insightsengineering/thevalidatoR">thevalidatoR</a></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/validation-report.png"></p>
